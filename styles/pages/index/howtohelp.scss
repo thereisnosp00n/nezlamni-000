@@ -1,108 +1,280 @@
 .index__howtohelp {
 
 }
+
 .index__howtohelp__wrapper {
-
+  background-color: $color-darkblue;
+  color: $color-white;
+  padding: 9.6rem 0;
 }
+
 .index__howtohelp__title__wrapper  {
+  font-family: $font-noto;
+  text-align: center;
+  text-transform: uppercase;
+  width: 40%;
+  margin: auto;
 
+  @include media('<phone') {
+    width: 90%;
+  }
 }
+
 .index__howtohelp__title  {
-
+  font-size: 4.8rem;
+  margin-bottom: 4.8rem;
 }
+
 .index__howtohelp__subtitle {
+  font-size: 1.8rem;
+  line-height: 1.5;
 
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
+
 .index__howtohelp__crypto__wrapper  {
-
+  width: 90%;
+  margin: auto;
 }
-.index__howtohelp__crypto__title  {
 
+.index__howtohelp__crypto__title,
+.index__howtohelp__wire__title  {
+  margin-top: 4.28rem;
+  color:$color-gray;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+  font-weight: 400;
 }
+
 .index__howtohelp__crypto__cards__wrapper  {
 
 }
-.index__howtohelp__crypto__card__wrapper {
 
+.index__howtohelp__crypto__card__wrapper {
+  border-top: 1px solid #8E833E;
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr 0.5fr;
+  width: 100%;
+  padding: 2.4rem;
+  align-items: center;
+  font-size: 1.6rem;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
+
 .index__howtohelp__crypto__card__line {
 
 }
+
+.index__howtohelp__crypto__card__currency__wrapper {
+  display: flex;
+  align-items: center;
+
+  @include media('<phone') {
+    margin-bottom: 2.4rem;
+
+  }
+}
+
 .index__howtohelp__crypto__card__logo__wrapper {
+  width: 3.2rem;
+  height: 3.2rem;
 
+  @include media('<phone') {
+    margin-right: 1.2rem;
+    overflow: visible;
+  }
 }
+
 .index__howtohelp__crypto__card__logo {
-
+  width: 100%;
 }
+
 .index__howtohelp__crypto__card__name  {
+  font-weight: 500;
 
+  @include media('<phone') {
+    font-size: 2.8rem;
+  }
 }
+
 .index__howtohelp__crypto__card__wallet  {
+  font-weight: 400;
 
+  @include media('<phone') {
+    font-size: 2.0rem;
+    margin-bottom: 2.4rem;
+  }
 }
+
 .index__howtohelp__crypto__card__button {
-
+  display: flex;
+  align-items: center;
 }
+
 .index__howtohelp__crypto__card__button__icon__wrapper {
-
+  margin-right: 0.8rem;
 }
+
 .index__howtohelp__crypto__card__button__icon {
 
 }
-.index__howtohelp__crypto__card__button__caption  {
 
+.index__howtohelp__crypto__card__button__caption  {
+  font-size: 1.4rem;
+  font-family: $font-noto;
+  text-transform: uppercase;
+  color: $color-yellow;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
+
 .index__howtohelp__crypto__card__line {
 
 }
+
 .index__howtohelp__wire__wrapper  {
-
+  width: 90%;
+  margin: auto;
 }
-.index__howtohelp__wire__title  {
 
-}
 .index__howtohelp__wire__cards__wrapper {
-
+  display: flex;
+  justify-content: center;
+  margin-top: 4.8rem;
+  margin-bottom: 9.6rem;
+  flex-wrap: wrap;
 }
+
 .index__howtohelp__wire__card__wrapper {
+  width: 40%;
+  padding: 2.4rem;
+  border-radius: 1.2rem;
+  color: $color-black;
+  margin: 0 1.2rem;
 
-}
-.index__howtohelp__wire__card__title    {
 
+  @include media('<phone') {
+    width: 100%;
+    margin: 1.2rem 0;
+    padding: 3.6rem 2.4rem;
+  }
+
+  &:nth-of-type(1) {
+    background-color: $color-yellow;
+  }
+
+  &:nth-of-type(2) {
+    background-color: $color-blue;
+  }
 }
+
+.index__howtohelp__wire__card__title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  font-weight: 600;
+
+  @include media('<phone') {
+    font-size: 3.6rem;
+  }
+}
+
 .index__howtohelp__wire__card__line {
-
+  width: 100%;
+  height: 2px;
+  background-color: $color-black;
 }
+
 .index__howtohelp__wire__card__infos__wrapper {
+  font-size: 1.6rem;
+  margin-top: 2.4rem;
 
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
+
 .index__howtohelp__wire__card__info__wrapper {
-
+  margin-bottom: 1.2rem;
+  @include media('<phone') {
+    margin-bottom: 2.4rem;
+  }
 }
+
 .index__howtohelp__wire__card__info__title  {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+
 
 }
+
 .index__howtohelp__wire__card__info__data  {
+  font-weight: 400;
+  font-size: 1.8rem;
 
+  @include media('<phone') {
+    font-size: 2.8rem;
+    line-height: 1.25;
+  }
 }
+
 .index__howtohelp__wire__card__disclaimer__wrapper {
-
+  margin-top: 2.4rem;
 }
+
 .index__howtohelp__wire__card__disclaimer__icon__wrapper {
-
+  margin-bottom: 1.2rem;
 }
+
 .index__howtohelp__wire__card__disclaimer__icon {
 
 }
-.index__howtohelp__wire__card__disclaimer  {
 
+.index__howtohelp__wire__card__disclaimer  {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.5;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
+
 .index__howtohelp__cardpayment__wrapper {
 
 }
+
 .index__howtohelp__cardpayment__button {
-
+  width: 90%;
+  border: 1px solid $color-yellow;
+  border-radius: 9.6rem;
+  padding: 3.6rem 0;
+  margin: auto;
 }
+
 .index__howtohelp__cardpayment__button__caption {
+  font-size: 2.4rem;
+  font-family: $font-noto;
+  text-transform: uppercase;
+  color: $color-yellow;
+  text-align: center;
 
+  @include media('<phone') {
+    font-size: 2.4rem;
+    width: 70%;
+    margin: auto;
+  }
 }
+

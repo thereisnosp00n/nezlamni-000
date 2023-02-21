@@ -8,11 +8,24 @@
 }
 
 .index__herobanner__image__wrapper {
-  height: 100vh;
+  // height: 100vh;
+  height: 47rem;
+
+  @include media('<phone') {
+    height: 80rem;
+    position: relative;
+  }
 }
 
 .index__herobanner__image {
-  height: 100%;
+  width: 100%;
+
+  @include media('<phone') {
+    width: unset;
+    height: 100%;
+    position: absolute;
+    left: -65%;
+  }
 }
 
 .index__herobanner__titles__wrapper {
@@ -21,6 +34,10 @@
   text-align: center;
   font-weight: 800;
 
+  @include media('<phone') {
+    margin-top: 1.6rem;
+  }
+
 
   .index__herobanner__title  {
     width: 100%;
@@ -28,10 +45,18 @@
 
     &:nth-of-type(1) {
       font-size: 24.8rem;
+
+      @include media('<phone') {
+        font-size: 9.8rem;
+      }
     }
 
     &:nth-of-type(2) {
       font-size: 13.8rem;
+
+      @include media('<phone') {
+        font-size: 7.2rem;
+      }
     }
   }
 }

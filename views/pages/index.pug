@@ -103,10 +103,11 @@ block content
             .index__howtohelp__crypto__cards__wrapper 
               each card in root.help_crypto_cards
                 .index__howtohelp__crypto__card__wrapper
-                  .index__howtohelp__crypto__card__line
-                  figure.index__howtohelp__crypto__card__logo__wrapper
-                    img.index__howtohelp__crypto__card__logo(data-src=card.logo.url crossorigin='anonymous')
-                  .index__howtohelp__crypto__card__name !{(card.name)}
+                  //- .index__howtohelp__crypto__card__line
+                  .index__howtohelp__crypto__card__currency__wrapper
+                    figure.index__howtohelp__crypto__card__logo__wrapper
+                      img.index__howtohelp__crypto__card__logo(data-src=card.logo.url crossorigin='anonymous')
+                    .index__howtohelp__crypto__card__name !{(card.name)}
                   .index__howtohelp__crypto__card__wallet !{(card.wallet)}
 
                   .index__howtohelp__crypto__card__button
@@ -156,24 +157,27 @@ block content
 
       section.index__gallery
         .index__gallery__wrapper
-          each image in root.gallery
-            figure.index__gallery__image__wrapper
-              img.index__gallery__image(data-src=fetchSVG(image.image.url) crossorigin='anonymous')
+          .index__gallery__title !{(root.gallery_title)}
+          .index__gallery__images__wrapper
+            each image in root.gallery
+              figure.index__gallery__image__wrapper
+                img.index__gallery__image(data-src=image.image.url crossorigin='anonymous')
 
           .index__gallery__controls__wrapper
-            figure.index__gallery__controls__arrow__wrapper
-              img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
-            figure.index__gallery__controls__arrow__wrapper
-              img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
+            .index__gallery__controls__arrows__wrapper
+              figure.index__gallery__controls__arrow__wrapper
+                img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
+              figure.index__gallery__controls__arrow__wrapper
+                img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
             .index__gallery__line
 
       section.index__bringvictory
         .index__bringvictory__wrapper
           .index__bringvictory__title !{(root.bringvictory_title)}
             figure.index__bringvictory__image__wrapper
-              img.index__bringvictory__image(data-src=fetchSVG(root.bringvictory_image.url) crossorigin='anonymous')
+              img.index__bringvictory__image(data-src=root.bringvictory_image.url crossorigin='anonymous')
 
-          .index__bringvictory__title !{(root.bringvictory_paragraphs)}
+          .index__bringvictory__paragraphs !{helpers.asHTML(root.bringvictory_paragraphs)}
 
           .index__bringvictory__socials__wrapper
             figure.index__bringvictory__social__wrapper
@@ -186,7 +190,7 @@ block content
       section.index__invincibles            
         .index__invincibles__wrapper
           figure.index__invincibles__logo__wrapper
-            img.index__invincibles__logo(data-src=fetchSVG(misc.logo.url) crossorigin='anonymous')
+            img.index__invincibles__logo(data-src=fetchSVG(misc.white_logo.url) crossorigin='anonymous')
             
           .index__invincibles__title !{helpers.asHTML(root.invincibles_title)}
 
@@ -196,6 +200,8 @@ block content
             .index__invincibles__getintouch__contacts__wrapper
               each card in root.getintouch_contacts
                 .index__invincibles__getintouch__contact__wrapper
-                  figure.index__invincibles__logo__wrapper
-                    img.index__invincibles__logo(data-src=fetchSVG(card.icon.url) crossorigin='anonymous')
+                  figure.index__invincibles__getintouch__icon__wrapper
+                    img.index__invincibles__getintouch__icon(data-src=fetchSVG(card.icon.url) crossorigin='anonymous')
                   .index__invincibles__getintouch__contact !{(card.data)}
+
+      include ../misc/footer.pug

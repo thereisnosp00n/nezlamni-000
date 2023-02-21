@@ -5,8 +5,8 @@
   @extend %cover;
   @extend %center;
 
-  background: $color-white;
-  color: $color-black;
+  background: $color-black;
+  color: $color-white;
   text-align: center;
   z-index: 9;
   width:100vw;
@@ -17,19 +17,33 @@
 }
 
 .preloader__wrapper{
+  text-transform: uppercase;
 
   @include media('<phone') {
   }
 }
 
 .preloader__title{
-
+  font-size: 1.2rem;
+  font-weight: 500;
   @include media('<phone') {
   }
 }
 
 .preloader__percents{
+  font-size: 3.6rem;
+  font-weight: 600;
+  @include media('<phone') {
+  }
+}
+
+.preloader__logo__wrapper {
+  position: absolute;
+  margin: auto;
+  transform: translateX(-35%);
+  bottom: 3.6rem;
 
   @include media('<phone') {
+    transform: translateX(-40%);
   }
 }

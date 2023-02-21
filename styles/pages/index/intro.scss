@@ -13,10 +13,18 @@
   width: 50%;
   text-align: center;
 
+  @include media('<phone') {
+    width: 80%;
+  }
+
   .index__intro__paragraph {
 
     &:nth-of-type(1) {
       @extend %paragraphs-18;
+
+      @include media('<phone') {
+        font-size: 2.4rem;
+      }
     }
 
     &:nth-of-type(2) {
@@ -25,6 +33,10 @@
       @extend %paragraphs-18;
       color: $color-yellow;
       width: 60%;
+
+      @include media('<phone') {
+        font-size: 2.4rem;
+      }
     }
 
     &:nth-of-type(3) {
@@ -32,6 +44,10 @@
       font-family: $font-noto;
       font-size: 6rem;
       text-transform: uppercase;
+
+      @include media('<phone') {
+        font-size: 4.8rem;
+      }
       
     }
   }
@@ -44,6 +60,14 @@
   position: relative;
   padding: 0.2rem;
   height: 131rem;
+
+  @include media('<phone') {
+    margin-top: 4.8rem;
+    display: flex;
+    height: unset;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .index__intro__gallery__image__wrapper {
     position: absolute;
@@ -76,6 +100,11 @@
     &:nth-of-type(6) {
       left: 106.8rem;
       top: 76rem
+    }
+
+    @include media('<phone') {
+      position: unset;
+      margin: 2.4rem 0;
     }
   }
 }

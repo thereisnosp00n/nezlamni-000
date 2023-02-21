@@ -3,5 +3,41 @@
 }
 
 .footer__wrapper {
-
+  background-color: $color-black;
+  padding: 0 5%;
+  position: relative;
+  // padding-bottom: 3.6rem;
 }
+
+.footer__line {
+  height: 1px;
+  width: 100%;
+  background-color: $color-gray;
+}
+
+.footer__logos__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.6rem 0;
+  position: relative;
+  flex-wrap: wrap;
+
+  @include media('<phone') {
+    justify-content: space-evenly;
+  }
+
+  .footer__logo__wrapper {
+    @include media('<phone') {
+      margin: 1.2rem 0;
+      max-width: 40%;
+    }
+
+    .footer__logo {
+      width: 100%;
+    }
+  }
+}
+
+

@@ -156,7 +156,7 @@ export default class Page {
       this.animationIn.fromTo(
         this.contentDiv,
         {
-          autoAlpha: 0,
+          autoAlpha: 1,
         },
         {
           autoAlpha: 1,
