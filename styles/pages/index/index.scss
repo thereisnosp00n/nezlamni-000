@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  
+}
+
+figure {
+  overflow: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  display: block;
+  color: $color-white;
+}
+
+.index {
+  @extend %cover;
+  width: 100vw;
+}
+
+.index__wrapper {
+  overflow: hidden;
+  position: fixed;
+  margin: auto;
+  width: 100vw;
+  color: $color-white;
+  background-color: $color-black;
+}
+
+@import './bringvictory.scss';
+@import './createdby.scss';
+@import './gallery.scss';
+@import './herobanner.scss';
+@import './howtohelp.scss';
+@import './intro.scss';
+@import './invincibles.scss';
+@import './projects.scss';
+@import './worldsupports.scss';

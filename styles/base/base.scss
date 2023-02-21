@@ -1,0 +1,108 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    //user-select: none;
+}
+
+html {
+    cursor: none;
+    // @extend %cover;
+    overflow: hidden;
+    // position: fixed;
+    font-size:calc(100vw/1920 * 13.5);
+    // font-size:calc(100vw/1920 * 20);
+    touch-action: none;
+
+    @include media('<tablet-v') {
+        font-size:calc(100vw/1440 * 13.5);
+    }
+    
+    @include media('<phone') {
+        font-size:calc(100vw/450 * 8);
+    }
+}
+
+a {
+    color:inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    // @extend %cover;
+    font-weight: 300;
+    font-size:24px;
+    font-family: $font-montserrat;
+    background-color: $color-white;
+    color: $color-white;
+    // overflow: hidden;
+    // position: fixed;
+}
+
+.content {
+    // @extend %cover;
+    // position: absolute;
+    overflow: hidden;
+}
+
+span {
+    //display: inline-block;
+}
+span span {
+    overflow: hidden;
+}
+
+img {
+    opacity: 1;
+    //transition: opacity 0.4s;
+    vertical-align: middle;
+
+    // &.loaded {
+    //     opacity: 1;
+    // }
+}
+
+.custom__cursor {
+
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // border: 2px solid $color-green;
+    // mix-blend-mode: exclusion;
+    box-shadow: 0 0 0 1px $color-white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9 !important; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.custom__cursor__dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: $color-black;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9 !important;
+    box-shadow: 0 0 0 1px $color-white; 
+}
+
+[data-animation="paragraph"],
+[data-animation="title"] {
+    span {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
+}
+
+
+

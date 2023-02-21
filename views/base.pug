@@ -1,0 +1,52 @@
+block variables
+  - var root = index.data
+
+doctype html
+html(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    //- meta(base="/")
+
+    //- base(href="/")
+
+    title THE INVINCIBLES
+    
+    meta(name="description" content="Test project")
+
+    //- link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+    //- link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
+    //- link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
+    //- link(rel="manifest" href="/site.webmanifest")
+    //- link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF")
+    meta(name='msapplication-TileColor', content='#FFFFFF')
+    meta(name='theme-color', content='#FFFFFF')
+
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+
+    //- meta(property="og:type" content="website")
+    //- meta(property="og:title" content=meta.data.title)
+    //- meta(property="og:description" content=meta.data.description)
+    //- meta(property="og:image" content=meta.data.image ? meta.data.image.url : '')
+
+    //- meta(name="twitter:card" content="summary_large_image")
+    //- meta(name="twitter:title" content=meta.data.title)
+    //- meta(name="twitter:description" content=meta.data.description)
+    //- meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
+
+    style 
+      include ../public/main.css
+
+    body(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "")
+      include ./misc/preloader
+      //- include ./misc/navigation
+      
+      
+      .content#content(data-template=template lang=lang)
+        include ./misc/header
+        
+        block content
+      script(src="/main.js")
+  

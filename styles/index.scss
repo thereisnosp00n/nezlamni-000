@@ -1,0 +1,27 @@
+@import './utils/variables';
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/vendors';
+@import './utils/responsive';
+
+@import './shared/pages';
+@import './shared/links';
+@import './shared/descriptions';
+@import './shared/buttons';
+@import './shared/titles';
+
+@import './base/reset';
+@import './base/fonts';
+@import './base/base';
+
+@import './pages/index/index';
+
+@import './layout/preloader';
+@import './layout/header';
+@import './layout/footer';
+
+$color-white: #fff;
+
+.class {
+    color: $color-white;
+}

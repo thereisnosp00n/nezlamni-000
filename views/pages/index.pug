@@ -1,0 +1,178 @@
+extends ../base.pug 
+//- include ../misc/form
+
+block variables 
+  - var template = 'index'
+  - var root = page.data
+  - var misc = miscellaneous.data
+  - var cardFields = 0
+
+block content
+  .index
+    .index__wrapper
+
+      section.index__herobanner
+        .index__herobanner__wrapper
+          figure.index__herobanner__image__wrapper
+            img.index__herobanner__image(data-src=root.herobanner_image.url crossorigin='anonymous')
+
+          .index__herobanner__titles__wrapper
+            each title in root.herobanner_titles
+              .index__herobanner__title !{(title.title)}
+
+      section.index__intro
+        .index__intro__wrapper
+          .index__intro__paragraphs__wrapper
+            each paragraph in root.intro_paragraphs
+              .index__intro__paragraph !{helpers.asHTML(paragraph.paragraph)}
+
+          .index__intro__gallery__wrapper
+            each image in root.intro_gallery
+              figure.index__intro__gallery__image__wrapper
+                img.index__intro__gallery__image(data-src=image.image.url crossorigin='anonymous')
+
+      section.index__worldsupports
+        .index__worldsupports__wrapper
+          figure.index__worldsupports__wrapper__image__wrapper
+            img.index__worldsupports__wrapper__image(data-src=root.worldsupports_image.url crossorigin='anonymous')
+
+          .index__worldsupports__paragraphs__wrapper
+            each paragraph in root.worldsupports_paragraphs
+              .index__worldsupports__paragraph !{helpers.asHTML(paragraph.paragraph)}
+
+          .index__worldsupports__map__wrapper
+            each layer in root.map_layers
+              figure.index__worldsupports__map__image__wrapper
+                img.index__worldsupports__map__image(data-src=layer.layer.url crossorigin='anonymous')
+
+      section.index__createdby
+        .index__createdby__wrapper
+          .index__createdby__paragraphs__wrapper
+            each paragraph in root.createdby_paragraphs
+              .index__createdby__paragraph !{helpers.asHTML(paragraph.paragraph)}
+
+      section.index__projects
+        .index__projects__wrapper
+          each project in root.projects
+            .index__project__wrapper
+              .index__project__line
+              .index__project__number !{(project.number)}
+
+              figure.index__project__image__wrapper
+                img.index__project__image(data-src=project.image.url crossorigin='anonymous')
+              
+              .index__project__title !{(project.title)}
+              .index__project__goal !{(project.goal)}
+              .index__project__subtitle !{(project.subtitle)}
+              .index__project__paragraphs !{helpers.asHTML(project.paragraphs)}
+              .index__project__needed__title !{(project.needed_title)}
+              .index__project__needed__list !{helpers.asHTML(project.needed_list)}
+
+      section.index__howtohelp
+        .index__howtohelp__wrapper
+          .index__howtohelp__title__wrapper 
+            .index__howtohelp__title !{(root.help_title)}
+            .index__howtohelp__subtitle !{helpers.asHTML(root.help_subtitle)}
+
+          .index__howtohelp__crypto__wrapper 
+            .index__howtohelp__crypto__title !{(root.help_crypto_title)}
+
+            .index__howtohelp__crypto__cards__wrapper 
+              each card in root.help_crypto_cards
+                .index__howtohelp__crypto__card__wrapper
+                  .index__howtohelp__crypto__card__line
+                  figure.index__howtohelp__crypto__card__logo__wrapper
+                    img.index__howtohelp__crypto__card__logo(data-src=card.logo.url crossorigin='anonymous')
+                  .index__howtohelp__crypto__card__name !{(card.name)}
+                  .index__howtohelp__crypto__card__wallet !{(card.wallet)}
+
+                  .index__howtohelp__crypto__card__button
+                    figure.index__howtohelp__crypto__card__button__icon__wrapper
+                      img.index__howtohelp__crypto__card__button__icon(data-src=fetchSVG(misc.copy_icon.url) crossorigin='anonymous')
+                    .index__howtohelp__crypto__card__button__caption !{(root.copy_cta)}
+                .index__howtohelp__crypto__card__line
+
+          .index__howtohelp__wire__wrapper 
+            .index__howtohelp__wire__title !{(root.help_wire_title)}
+
+            .index__howtohelp__wire__cards__wrapper
+              each card in root.help_wire_cards
+                .index__howtohelp__wire__card__wrapper
+                  .index__howtohelp__wire__card__title !{(card.title)}    
+                  .index__howtohelp__wire__card__line
+
+                  .index__howtohelp__wire__card__infos__wrapper
+                    .index__howtohelp__wire__card__info__wrapper
+                      .index__howtohelp__wire__card__info__title !{(card.name_title)}
+                      .index__howtohelp__wire__card__info__data !{(card.name_data)}
+
+                    .index__howtohelp__wire__card__info__wrapper
+                      .index__howtohelp__wire__card__info__title !{(card.iban_title)}
+                      .index__howtohelp__wire__card__info__data !{(card.iban_data)}
+
+                    .index__howtohelp__wire__card__info__wrapper
+                      .index__howtohelp__wire__card__info__title !{(card.bank_title)}
+                      .index__howtohelp__wire__card__info__data !{(card.bank_data)}
+
+                    .index__howtohelp__wire__card__info__wrapper
+                      .index__howtohelp__wire__card__info__title !{(card.swift_title)}
+                      .index__howtohelp__wire__card__info__data !{(card.swift_data)}
+
+                    .index__howtohelp__wire__card__info__wrapper
+                      .index__howtohelp__wire__card__info__title !{(card.purpose_title)}
+                      .index__howtohelp__wire__card__info__data !{(card.purpose_data)}
+
+                    .index__howtohelp__wire__card__disclaimer__wrapper
+                      figure.index__howtohelp__wire__card__disclaimer__icon__wrapper
+                        img.index__howtohelp__wire__card__disclaimer__icon(data-src=fetchSVG(misc.star_icon.url) crossorigin='anonymous')
+                      .index__howtohelp__wire__card__disclaimer !{(card.disclaimer)} 
+
+          .index__howtohelp__cardpayment__wrapper
+            .index__howtohelp__cardpayment__button
+              .index__howtohelp__cardpayment__button__caption !{(root.cardpayment_cta)}  
+
+      section.index__gallery
+        .index__gallery__wrapper
+          each image in root.gallery
+            figure.index__gallery__image__wrapper
+              img.index__gallery__image(data-src=fetchSVG(image.image.url) crossorigin='anonymous')
+
+          .index__gallery__controls__wrapper
+            figure.index__gallery__controls__arrow__wrapper
+              img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
+            figure.index__gallery__controls__arrow__wrapper
+              img.index__gallery__controls__arrow(data-src=fetchSVG(misc.arrow_icon.url) crossorigin='anonymous')
+            .index__gallery__line
+
+      section.index__bringvictory
+        .index__bringvictory__wrapper
+          .index__bringvictory__title !{(root.bringvictory_title)}
+            figure.index__bringvictory__image__wrapper
+              img.index__bringvictory__image(data-src=fetchSVG(root.bringvictory_image.url) crossorigin='anonymous')
+
+          .index__bringvictory__title !{(root.bringvictory_paragraphs)}
+
+          .index__bringvictory__socials__wrapper
+            figure.index__bringvictory__social__wrapper
+              img.index__bringvictory__social(data-src=fetchSVG(misc.twitter_icon.url) crossorigin='anonymous')
+            figure.index__bringvictory__social__wrapper
+              img.index__bringvictory__social(data-src=fetchSVG(misc.facebook_icon.url) crossorigin='anonymous')
+            figure.index__bringvictory__social__wrapper
+              img.index__bringvictory__social(data-src=fetchSVG(misc.link_icon.url) crossorigin='anonymous')
+
+      section.index__invincibles            
+        .index__invincibles__wrapper
+          figure.index__invincibles__logo__wrapper
+            img.index__invincibles__logo(data-src=fetchSVG(misc.logo.url) crossorigin='anonymous')
+            
+          .index__invincibles__title !{helpers.asHTML(root.invincibles_title)}
+
+          .index__invincibles__getintouch__wrapper
+            .index__invincibles__getintouch__title !{(root.getintouch_title)}
+
+            .index__invincibles__getintouch__contacts__wrapper
+              each card in root.getintouch_contacts
+                .index__invincibles__getintouch__contact__wrapper
+                  figure.index__invincibles__logo__wrapper
+                    img.index__invincibles__logo(data-src=fetchSVG(card.icon.url) crossorigin='anonymous')
+                  .index__invincibles__getintouch__contact !{(card.data)}

@@ -1,0 +1,35 @@
+.preloader{
+
+  // display:none;
+
+  @extend %cover;
+  @extend %center;
+
+  background: $color-white;
+  color: $color-black;
+  text-align: center;
+  z-index: 9;
+  width:100vw;
+  height:100vh;
+
+  @include media('<phone') {
+  }
+}
+
+.preloader__wrapper{
+
+  @include media('<phone') {
+  }
+}
+
+.preloader__title{
+
+  @include media('<phone') {
+  }
+}
+
+.preloader__percents{
+
+  @include media('<phone') {
+  }
+}

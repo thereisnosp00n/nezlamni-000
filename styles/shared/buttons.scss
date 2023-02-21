@@ -1,0 +1,11 @@
+button {
+  cursor: pointer;
+}
+
+.button {
+  @include media('<phone') {
+  }
+
+  &:disabled {
+  }
+}

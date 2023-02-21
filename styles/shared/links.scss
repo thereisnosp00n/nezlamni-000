@@ -1,0 +1,77 @@
+%link__wrapper {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+}
+
+%link__line {
+  margin-top: 0.5rem;
+  background: currentColor;
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: transform 0.7s $ease-in-out;
+  width: 100%;
+}
+
+%link__social {
+	font-size: 1.6rem;
+	font-weight: 400;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+%link__explore {
+	font-size: 2.4rem;
+	font-weight: 400;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+%link__line--visible {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+%link__line--hidden {
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+
+%link {
+  @extend %link__wrapper;
+
+  display: inline-block;
+
+  &:after {
+    @extend %link__line;
+    @extend %link__line--visible;
+  }
+
+  &:hover {
+    &:after {
+      @extend %link__line--hidden;
+    }
+  }
+}
+
+%link--hidden {
+  @extend %link__wrapper;
+
+  display: inline-block;
+
+  &:after {
+    @extend %link__line;
+    @extend %link__line--hidden;
+  }
+
+  &:hover {
+    &:after {
+      @extend %link__line--visible;
+      
+    }
+  }
+}

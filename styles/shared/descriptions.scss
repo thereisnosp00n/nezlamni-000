@@ -1,0 +1,15 @@
+%description-24{
+
+	@include media('<phone') {
+  }
+}
+
+%paragraphs-18{
+  font-family: $font-noto;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  text-transform: uppercase
+  ;
+	@include media('<phone') {
+  }
+}
