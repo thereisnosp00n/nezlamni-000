@@ -3,50 +3,172 @@
 }
 
 .index__projects__wrapper {
+  background-color: $color-black;
+  color: $color-white;
+  width: 100%;
+  padding-top: 7.2rem;
+  flex-direction: column;
+  align-items: center;
+}
 
+.index__projects__title {
+  font-family: $font-montserrat;
+  font-size: 14.8rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 7.2rem;
 }
 
 .index__project__wrapper {
+  width: 90%;
+  margin: auto;
 
+  .index__project__line {
+    width: 100%;
+    height: 1px;
+    background-color: $color-gray;
+  }
+  
+  .index__project__number {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 3.2rem 0;
+  }
+  
+  .index__project__image__wrapper {
+    width: 100%;
+  }
+  
+  .index__project__image {
+    width: 100%;
+  }
+  
+  .index__project__title  {
+    text-transform: uppercase;
+    font-family: $font-montserrat;  
+    font-weight: 700;
+    color: $color-yellow;
+    font-size: 3.6rem;
+    margin: 3.6rem 0;
+  }
+
+  .index__project__infobar__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4.8rem;
+  }
+
+  .index__project__infobar__buttons__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .index__project__goal {
+    font-family: $font-montserrat;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .index__project__support__button {
+    padding: 1.6rem 3.6rem;
+    border-radius: 12rem;
+    border: solid 1px $color-yellow;
+
+  }
+
+  .index__project__support__button__caption {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-family: $font-noto;
+    color:$color-yellow;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .index__project__details__button {
+    padding: 1.6rem 3.6rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .index__arrow__wrapper {
+    display: flex;
+    align-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .index__arrow {
+
+  }
+
+  .index__project__details__button__caption {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-family: $font-noto;
+    color:$color-yellow;
+  }
+  
+  .index__project__subtitle  {
+    font-family: $font-montserrat;
+    font-weight: 700;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+  }
+
+  .index__project__paragraphs__wrapper  {
+    margin-top: 4rem;
+    width: 60%;
+    display: flex;
+  }
+
+  .index__project__paragraphs__line {
+    background-color: $color-yellow;
+    width: 3px;
+    margin: 0 2.4rem;
+  }
+  
+  .index__project__paragraphs  {
+    font-size: 1.6rem;
+    font-family: $font-noto;
+    line-height: 1.5;
+  }
+  
+  .index__project__needed__title  {
+    margin-top: 4.28rem;
+    color:$color-gray;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2.4rem;
+  }
+  
+  .index__project__needed__list {
+    font-family: $font-noto;
+    font-size: 1.6rem;
+    margin-bottom: 7.2rem;
+
+    p {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      height: 6.4rem;
+      border-top: solid 1px $color-gray;
+
+      strong {
+        font-family: $font-montserrat;
+        font-weight: 800;
+        margin-right: 1.2rem;
+        margin-left: 2.4rem;
+        color: $color-yellow;
+      }
+    }
+  }
 }
 
-.index__project__line {
 
-}
-
-.index__project__number {
-
-}
-
-.index__project__image__wrapper {
-
-}
-
-.index__project__image {
-
-}
-
-.index__project__title  {
-
-}
-
-.index__project__goal  {
-
-}
-
-.index__project__subtitle  {
-
-}
-
-.index__project__paragraphs  {
-
-}
-
-.index__project__needed__title  {
-
-}
-
-.index__project__needed__list {
-
-}
 

@@ -3,11 +3,13 @@
 }
 
 .index__intro__wrapper {
-
+  color: $color-white;
+  background-color: $color-black;
+  padding-top: 12.6rem;
 }
 
 .index__intro__paragraphs__wrapper {
-  margin: 12.6rem auto;
+  margin:auto;
   width: 50%;
   text-align: center;
 

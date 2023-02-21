@@ -30,6 +30,7 @@
     font-family: $font-noto;
     width: 40%;
     text-align: center;
+    color: $color-white;
 
     &:nth-of-type(1) {
       @extend %paragraphs-18;

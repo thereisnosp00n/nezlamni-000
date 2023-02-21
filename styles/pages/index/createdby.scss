@@ -3,14 +3,49 @@
 }
 
 .index__createdby__wrapper{
-
+  background-color: $color-white;
+  color: $color-black;
+  padding-top: 6rem;
 }
 
 .index__createdby__paragraphs__wrapper{
 
+  .index__createdby__paragraph {
+    font-family: $font-noto;
+    margin: auto;
+    text-align: center;
+
+    &:nth-of-type(1) {
+      width: 75%;
+      font-size: 4.8rem;
+      text-transform: uppercase;
+    }
+
+    &:nth-of-type(2) {
+      margin-top: 6rem;
+      width: 60%;
+      font-size: 2.0rem;
+      line-height: 1.5;
+    }
+  }
 }
 
-.index__createdby__paragraph {
+.index__createdby__logos__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10rem auto;
+  justify-content: center;
 
+  .index__createdby__logo__wrapper {
+
+    margin: 0 2.4rem;
+    .index__createdby__logo {
+  
+    }
+  }
 }
+
+
+
 

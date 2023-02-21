@@ -50,23 +50,46 @@ block content
           .index__createdby__paragraphs__wrapper
             each paragraph in root.createdby_paragraphs
               .index__createdby__paragraph !{helpers.asHTML(paragraph.paragraph)}
+          
+          .index__createdby__logos__wrapper
+            each logo in root.createby_logos
+              figure.index__createdby__logo__wrapper
+                img.index__createdby__logo(data-src=logo.logo.url crossorigin='anonymous')
 
       section.index__projects
-        .index__projects__wrapper
-          each project in root.projects
-            .index__project__wrapper
-              .index__project__line
-              .index__project__number !{(project.number)}
+        .index__projects__wrapper 
+          .index__projects__title !{(root.projects_title)}
+          .index__projects__cards__wrapper
+            each project in root.projects
+              .index__project__wrapper
+                .index__project__line
+                .index__project__number !{(project.number)}
 
-              figure.index__project__image__wrapper
-                img.index__project__image(data-src=project.image.url crossorigin='anonymous')
-              
-              .index__project__title !{(project.title)}
-              .index__project__goal !{(project.goal)}
-              .index__project__subtitle !{(project.subtitle)}
-              .index__project__paragraphs !{helpers.asHTML(project.paragraphs)}
-              .index__project__needed__title !{(project.needed_title)}
-              .index__project__needed__list !{helpers.asHTML(project.needed_list)}
+                figure.index__project__image__wrapper
+                  img.index__project__image(data-src=project.image.url crossorigin='anonymous')
+                
+                .index__project__title !{(project.title)}
+
+                .index__project__infobar__wrapper
+                  .index__project__goal !{(project.goal)}
+
+                  .index__project__infobar__buttons__wrapper
+                    .index__project__support__button
+                      .index__project__support__button__caption !{helpers.asHTML(misc.support_caption)}
+
+                    .index__project__details__button
+                      figure.index__arrow__wrapper
+                        img.index__arrow(data-src=misc.arrow_icon.url crossorigin='anonymous')
+                      .index__project__details__button__caption !{helpers.asHTML(misc.details_caption)}
+
+                .index__project__subtitle !{(project.subtitle)}
+
+                .index__project__paragraphs__wrapper
+                  .index__project__paragraphs__line
+                  .index__project__paragraphs !{helpers.asHTML(project.paragraphs)}
+
+                .index__project__needed__title !{(project.needed_title)}
+                .index__project__needed__list !{helpers.asHTML(project.needed_list)}
 
       section.index__howtohelp
         .index__howtohelp__wrapper
