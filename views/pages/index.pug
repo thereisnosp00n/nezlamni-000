@@ -82,14 +82,15 @@ block content
                         img.index__arrow(data-src=misc.arrow_icon.url crossorigin='anonymous')
                       .index__project__details__button__caption !{helpers.asHTML(misc.details_caption)}
 
-                .index__project__subtitle !{(project.subtitle)}
+                .index__project__expandable__wrapper
+                  .index__project__subtitle !{(project.subtitle)}
 
-                .index__project__paragraphs__wrapper
-                  .index__project__paragraphs__line
-                  .index__project__paragraphs !{helpers.asHTML(project.paragraphs)}
+                  .index__project__paragraphs__wrapper
+                    .index__project__paragraphs__line
+                    .index__project__paragraphs !{helpers.asHTML(project.paragraphs)}
 
-                .index__project__needed__title !{(project.needed_title)}
-                .index__project__needed__list !{helpers.asHTML(project.needed_list)}
+                  .index__project__needed__title !{(project.needed_title)}
+                  .index__project__needed__list !{helpers.asHTML(project.needed_list)}
 
       section.index__howtohelp
         .index__howtohelp__wrapper

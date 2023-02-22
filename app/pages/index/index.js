@@ -4,6 +4,7 @@ import DetectionManager from 'classes/detection'
 import _ from 'lodash'
 
 import Header from 'components/header'
+import Projects from '../../animations/sections/projects'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -12,6 +13,7 @@ export default class Index extends Page {
       contentDiv: '.content',
       pageElements: {
         wrapper: '.index__wrapper',
+        projects: '.index__projects',
       },
     })
 
@@ -35,9 +37,22 @@ export default class Index extends Page {
       super.onResize()
       this.pageEvents.scrollManagement.enableScroll()
     })
+
+    this.pageEvents.eventEmitter.on('onResize', () => {
+      super.onResize()
+    })
   }
 
-  createSectionsAnimations() {}
+  createSectionsAnimations() {
+    this.sectionAnimations = []
+
+    this.projectsAnimations = new Projects({
+      element: this.pageElements.projects,
+      pageEvents: this.pageEvents,
+    })
+
+    this.sectionAnimations.push(this.projectsAnimations)
+  }
 
   createLayout(events) {
     this.header = new Header({ pageEvents: events })
@@ -47,8 +62,14 @@ export default class Index extends Page {
 
   onResize() {
     super.onResize()
-
     this.calculateParameters()
+    this.resizeAnimations()
+  }
+
+  resizeAnimations() {
+    each(this.sectionAnimations, (element) => {
+      element.onResize()
+    })
   }
 
   addEventListeners() {
