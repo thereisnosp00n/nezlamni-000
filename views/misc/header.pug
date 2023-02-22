@@ -1,2 +1,9 @@
 .header
   .header__wrapper
+    figure.header__logo__wrapper
+      img.header__logo(data-src=misc.logo.url crossorigin='anonymous')
+    
+    .header__buttons__wrapper
+      a.header__button__link(href='/') !{(navigation.data.projects)}
+      a.header__button__link(href='/') !{(navigation.data.help)}
+      a.header__button__link(href='/') !{(navigation.data.share)}

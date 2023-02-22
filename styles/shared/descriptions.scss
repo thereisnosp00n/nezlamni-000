@@ -5,11 +5,13 @@
 }
 
 %paragraphs-18{
-  font-family: $font-noto;
+  font-family: $font-montserrat;
   font-size: 1.8rem;
-  line-height: 1.5;
-  text-transform: uppercase
-  ;
-	@include media('<phone') {
+  line-height: 1.65;
+  text-transform: uppercase;
+  font-weight: 400;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
   }
 }

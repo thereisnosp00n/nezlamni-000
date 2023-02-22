@@ -9,11 +9,12 @@
 }
 
 .index__howtohelp__title__wrapper  {
-  font-family: $font-noto;
+  // font-family: $font-noto;
   text-align: center;
   text-transform: uppercase;
   width: 40%;
   margin: auto;
+  @extend %paragraphs-18;
 
   @include media('<phone') {
     width: 90%;
@@ -88,9 +89,9 @@
 .index__howtohelp__crypto__card__logo__wrapper {
   width: 3.2rem;
   height: 3.2rem;
+  margin-right: 1.2rem;
 
   @include media('<phone') {
-    margin-right: 1.2rem;
     overflow: visible;
   }
 }
@@ -119,6 +120,7 @@
 .index__howtohelp__crypto__card__button {
   display: flex;
   align-items: center;
+  justify-self: end;
 }
 
 .index__howtohelp__crypto__card__button__icon__wrapper {
@@ -134,6 +136,7 @@
   font-family: $font-noto;
   text-transform: uppercase;
   color: $color-yellow;
+  letter-spacing: 0.1rem;
 
   @include media('<phone') {
     font-size: 2.4rem;
@@ -176,7 +179,7 @@
   }
 
   &:nth-of-type(2) {
-    background-color: $color-blue;
+    background-color: $color-lightblue;
   }
 }
 

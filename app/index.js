@@ -19,7 +19,7 @@ class App {
 
     this.addLinkListeners()
     this.addEventListeners()
-    this.createCursor()
+    // this.createCursor()
 
     this.update()
 

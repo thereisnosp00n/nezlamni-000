@@ -20,10 +20,11 @@ export default class Index extends Page {
     // this.createLayout(this.pageEvents)
     this.createSectionsAnimations()
     this.createCustomEvents()
+    this.createLayout()
   }
 
   initAnimation() {
-    this.herobannerAnimations.initAnimation()
+    // this.herobannerAnimations.initAnimation()
   }
 
   calculateParameters() {}
@@ -39,10 +40,9 @@ export default class Index extends Page {
   createSectionsAnimations() {}
 
   createLayout(events) {
-    this.form = new Form({ pageEvents: events })
-    this.header = new Header({ pageEvents: events, form: this.form })
+    this.header = new Header({ pageEvents: events })
 
-    this.header.hideHeader()
+    this.header.showHeader()
   }
 
   onResize() {

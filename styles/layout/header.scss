@@ -4,10 +4,34 @@
   top: 0;
   left: 0;
   width: 100%;
-  display: none;
 }
 
 .header__wrapper {
   height: 8.8rem;
   background-color: $color-yellow;
+  padding: 1.6rem 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.header__logo__wrapper {
+
+}
+
+.header__logo {
+
+}
+
+.header__buttons__wrapper {
+
+}
+
+.header__button__link {
+  color: $color-black;
+  @extend %paragraphs-18;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 3.6rem;
+}
+

@@ -20,9 +20,11 @@
   text-transform: uppercase;
   text-align: center;
   margin: auto;
+  margin-bottom: 6.4rem;
 
   @include media('<phone') {
     width: 90%;
+    margin-bottom: unset;
   }
 }
 

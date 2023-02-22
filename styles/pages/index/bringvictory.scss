@@ -21,10 +21,12 @@
 }
 
 .index__bringvictory__image__wrapper{
-  margin: 3.6rem auto;
+  margin: auto;
+  margin-bottom: 3.6rem;
 
   @include media('<phone') {
     width: 100%;
+    margin: 3.6rem auto;
   }
 }
 
@@ -40,6 +42,11 @@
   font-family: $font-noto;
   text-align: center;
   margin: auto;
+  width: 50%;
+
+  @include media('<phone') {
+    width: unset;
+  }
 }
 
 .index__bringvictory__socials__wrapper{
