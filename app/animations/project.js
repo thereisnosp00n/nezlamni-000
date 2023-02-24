@@ -30,7 +30,7 @@ export default class Project {
 
     this.expandTimeline.add(
       GSAP.from(this.subtitle, {
-        yPercent: 20,
+        yPercent: 70,
         autoAlpha: 0,
         duration: 0.35,
         ease: 'power3.out',
@@ -54,6 +54,7 @@ export default class Project {
       GSAP.from(
         this.paragraphs,
         {
+          yPercent: 20,
           autoAlpha: 0,
           duration: 0.35,
         },

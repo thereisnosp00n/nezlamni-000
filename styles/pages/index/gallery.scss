@@ -28,15 +28,29 @@
   }
 }
 
-.index__gallery__images__wrapper {
+.index__gallery__images__slider__wrapper {
+  width: 100%;
+  left: -56rem;
   height: 65rem;
-  width: 225%;
-  display: flex;
-  align-items: center;
+  position: relative;
 
   @include media('<phone') {
-    width: 600%;
+    height: 48rem;
+    margin-top: 6.4rem;
+  }
+}
+
+.index__gallery__images__wrapper {
+  position: absolute;
+  height: 100%;
+  // width: 100%;
+  // display: flex;
+  // align-items: center;
+
+  @include media('<phone') {
+    // width: 150%;
     // height: unset;
+    width: 100%;
     // display: flex;
     // align-items: center;
     // flex-direction: column;
@@ -45,31 +59,39 @@
 }
 
 .index__gallery__image__wrapper {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 56rem;
+  height: 56rem;
+  position: absolute;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 
   @include media('<phone') {
-    // width: 100%;
-    // height: unset;
-    margin: 0 1.2rem;
-    max-width: 70%;
+    width: 48rem;
+    height: 48rem;
+    padding: 1.2rem;
   }
 
 }
 
 .index__gallery__image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
   @include media('<phone') {
-    width: 100%;
+    width: 95%;
   }
 }
 
 .index__gallery__controls__wrapper {
   width: 90%;
   position: relative;
-  margin-top: 4.8rem;
+
+  @include media('<phone') {
+    margin-top: 4.8rem;
+  }
 }
 
 .index__gallery__controls__arrows__wrapper {
@@ -78,6 +100,7 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .index__gallery__controls__arrow__wrapper {
@@ -90,6 +113,7 @@
   align-items: center;
   margin: 0 1.2rem;
   background-color: $color-black;
+  user-select: none;
 
   &:nth-of-type(1) {
     transform: scaleX(-1);

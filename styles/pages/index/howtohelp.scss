@@ -40,14 +40,30 @@
   margin: auto;
 }
 
-.index__howtohelp__crypto__title,
 .index__howtohelp__wire__title  {
-  margin-top: 4.28rem;
+  margin-top: 7.2rem;
   color:$color-gray;
   font-size: 1.8rem;
   text-transform: uppercase;
   margin-bottom: 2.4rem;
   font-weight: 400;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
+}
+
+.index__howtohelp__crypto__title {
+  margin-top: 6.4rem;
+  color:$color-gray;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+  font-weight: 400;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
 
 .index__howtohelp__crypto__cards__wrapper  {
@@ -62,6 +78,10 @@
   padding: 2.4rem;
   align-items: center;
   font-size: 1.6rem;
+
+  &:last-of-type {
+    border-bottom: 1px solid #8E833E;
+  }
 
   @include media('<phone') {
     font-size: 2.4rem;
@@ -125,10 +145,11 @@
 
 .index__howtohelp__crypto__card__button__icon__wrapper {
   margin-right: 0.8rem;
+  position: relative;
 }
 
 .index__howtohelp__crypto__card__button__icon {
-
+  transform: translateY(-10%);
 }
 
 .index__howtohelp__crypto__card__button__caption  {
@@ -140,6 +161,7 @@
 
   @include media('<phone') {
     font-size: 2.4rem;
+    line-height: 2;
   }
 }
 
@@ -158,6 +180,10 @@
   margin-top: 4.8rem;
   margin-bottom: 9.6rem;
   flex-wrap: wrap;
+
+  @include media('<phone') {
+    margin-top: 2.4rem;
+  }
 }
 
 .index__howtohelp__wire__card__wrapper {

@@ -4,7 +4,9 @@ import DetectionManager from 'classes/detection'
 import _ from 'lodash'
 
 import Header from 'components/header'
-import Projects from '../../animations/sections/projects'
+import Projects from 'animations/sections/projects'
+import Gallery from 'animations/sections/gallery'
+import CreatedBy from 'animations/sections/createdby'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -14,6 +16,8 @@ export default class Index extends Page {
       pageElements: {
         wrapper: '.index__wrapper',
         projects: '.index__projects',
+        gallery: '.index__gallery__wrapper',
+        createdby: '.index__createdby__wrapper',
       },
     })
 
@@ -51,7 +55,17 @@ export default class Index extends Page {
       pageEvents: this.pageEvents,
     })
 
-    this.sectionAnimations.push(this.projectsAnimations)
+    this.galleryAnimations = new Gallery({
+      element: this.pageElements.gallery,
+      pageEvents: this.pageEvents,
+    })
+
+    this.createdbyAnimations = new CreatedBy({
+      element: this.pageElements.createdby,
+      pageEvents: this.pageEvents,
+    })
+
+    this.sectionAnimations.push(this.projectsAnimations, this.galleryAnimations)
   }
 
   createLayout(events) {
@@ -66,9 +80,35 @@ export default class Index extends Page {
     this.resizeAnimations()
   }
 
+  onTouchDown(event) {
+    each(this.sectionAnimations, (element) => {
+      if (element && element.onTouchDown) {
+        element.onTouchDown(event)
+      }
+    })
+  }
+
+  onTouchMove(event) {
+    each(this.sectionAnimations, (element) => {
+      if (element && element.onTouchMove) {
+        element.onTouchMove(event)
+      }
+    })
+  }
+
+  onTouchUp(event) {
+    each(this.sectionAnimations, (element) => {
+      if (element && element.onTouchUp) {
+        element.onTouchUp(event)
+      }
+    })
+  }
+
   resizeAnimations() {
     each(this.sectionAnimations, (element) => {
-      element.onResize()
+      if (element && element.onResize) {
+        element.onResize()
+      }
     })
   }
 

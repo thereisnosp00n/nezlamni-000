@@ -115,7 +115,7 @@ block content
                     figure.index__howtohelp__crypto__card__button__icon__wrapper
                       img.index__howtohelp__crypto__card__button__icon(data-src=fetchSVG(misc.copy_icon.url) crossorigin='anonymous')
                     .index__howtohelp__crypto__card__button__caption !{(root.copy_cta)}
-                .index__howtohelp__crypto__card__line
+                //- .index__howtohelp__crypto__card__line
 
           .index__howtohelp__wire__wrapper 
             .index__howtohelp__wire__title !{(root.help_wire_title)}
@@ -159,10 +159,11 @@ block content
       section.index__gallery
         .index__gallery__wrapper
           .index__gallery__title !{(root.gallery_title)}
-          .index__gallery__images__wrapper
-            each image in root.gallery
-              figure.index__gallery__image__wrapper
-                img.index__gallery__image(data-src=image.image.url crossorigin='anonymous')
+          .index__gallery__images__slider__wrapper
+            .index__gallery__images__wrapper
+              each image in root.gallery
+                figure.index__gallery__image__wrapper
+                  img.index__gallery__image(data-src=image.image.url crossorigin='anonymous')
 
           .index__gallery__controls__wrapper
             .index__gallery__controls__arrows__wrapper

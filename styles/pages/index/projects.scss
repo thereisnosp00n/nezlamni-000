@@ -54,7 +54,8 @@
     font-weight: 700;
     color: $color-yellow;
     font-size: 3.6rem;
-    margin: 3.6rem 0;
+    margin-top: 3.6rem;
+    margin-bottom: 4.8rem;
   }
 
   .index__project__infobar__wrapper {
@@ -92,8 +93,9 @@
     }
 
     @include media('<phone') {
+      align-self: baseline;
       font-size: 2.4rem;
-      margin-bottom: 3.6rem;
+      margin-bottom: 4.8rem;
     }
   }
 
@@ -103,6 +105,10 @@
     border: solid 1px $color-yellow;
     cursor: pointer;
 
+    @include media('<phone') {
+      width: 100%;
+    }
+
   }
 
   .index__project__support__button__caption {
@@ -111,9 +117,15 @@
     font-family: $font-noto;
     color:$color-yellow;
     letter-spacing: 0.1rem;
+    line-height: 2;
+    text-align: center;
 
     strong {
       font-weight: 500;
+    }
+
+    @include media('<phone') {
+      font-size: 2.4rem;
     }
   }
 
@@ -145,6 +157,10 @@
     letter-spacing: 0.1rem;
     line-height: 1.5;
     @extend %link--hidden;
+
+    @include media('<phone') {
+      font-size: 2.4rem;
+    }
   }
 
   .index__project__expandable__wrapper {
