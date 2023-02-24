@@ -7,6 +7,8 @@ import Header from 'components/header'
 import Projects from 'animations/sections/projects'
 import Gallery from 'animations/sections/gallery'
 import CreatedBy from 'animations/sections/createdby'
+import HeroBanner from 'animations/sections/herobanner'
+import Intro from 'animations/sections/intro'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -15,6 +17,8 @@ export default class Index extends Page {
       contentDiv: '.content',
       pageElements: {
         wrapper: '.index__wrapper',
+        herobanner: '.index__herobanner__wrapper',
+        intro: '.index__intro__wrapper',
         projects: '.index__projects',
         gallery: '.index__gallery__wrapper',
         createdby: '.index__createdby__wrapper',
@@ -23,25 +27,18 @@ export default class Index extends Page {
 
     this.pageEvents = pageEvents
 
-    // this.createLayout(this.pageEvents)
     this.createSectionsAnimations()
     this.createCustomEvents()
     this.createLayout()
   }
 
   initAnimation() {
-    // this.herobannerAnimations.initAnimation()
+    this.herobannerAnimations.initAnimation()
   }
 
   calculateParameters() {}
 
   createCustomEvents() {
-    this.pageEvents.eventEmitter.on('herobanner-completed', () => {
-      this.header.showHeader()
-      super.onResize()
-      this.pageEvents.scrollManagement.enableScroll()
-    })
-
     this.pageEvents.eventEmitter.on('onResize', () => {
       super.onResize()
     })
@@ -49,6 +46,16 @@ export default class Index extends Page {
 
   createSectionsAnimations() {
     this.sectionAnimations = []
+
+    this.herobannerAnimations = new HeroBanner({
+      element: this.pageElements.herobanner,
+      pageEvents: this.pageEvents,
+    })
+
+    this.introAnimations = new Intro({
+      element: this.pageElements.intro,
+      pageEvents: this.pageEvents,
+    })
 
     this.projectsAnimations = new Projects({
       element: this.pageElements.projects,
@@ -65,13 +72,18 @@ export default class Index extends Page {
       pageEvents: this.pageEvents,
     })
 
-    this.sectionAnimations.push(this.projectsAnimations, this.galleryAnimations)
+    this.sectionAnimations.push(
+      this.herobannerAnimations,
+      this.projectsAnimations,
+      this.galleryAnimations
+    )
   }
 
   createLayout(events) {
     this.header = new Header({ pageEvents: events })
 
-    this.header.showHeader()
+    // this.header.showHeader()
+    this.header.hideHeader()
   }
 
   onResize() {
@@ -81,6 +93,8 @@ export default class Index extends Page {
   }
 
   onTouchDown(event) {
+    super.onTouchDown(event)
+
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchDown) {
         element.onTouchDown(event)
@@ -89,6 +103,8 @@ export default class Index extends Page {
   }
 
   onTouchMove(event) {
+    super.onTouchMove(event)
+
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchMove) {
         element.onTouchMove(event)
@@ -97,6 +113,8 @@ export default class Index extends Page {
   }
 
   onTouchUp(event) {
+    super.onTouchUp(event)
+
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchUp) {
         element.onTouchUp(event)
@@ -104,7 +122,7 @@ export default class Index extends Page {
     })
   }
 
-  resizeAnimations() {
+  resizeAnimations(event) {
     each(this.sectionAnimations, (element) => {
       if (element && element.onResize) {
         element.onResize()

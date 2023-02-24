@@ -18,6 +18,14 @@
   }
 
   .index__intro__paragraph {
+    // display: inline-block;
+    line-break: normal;
+
+    p {
+      span {
+        visibility: hidden;
+      }
+    }
 
     &:nth-of-type(1) {
       @extend %paragraphs-18;

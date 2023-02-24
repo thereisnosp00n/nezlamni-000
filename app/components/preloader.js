@@ -19,7 +19,7 @@ export default class Preloader extends Component {
   }
 
   createLoader() {
-    this.pageEvents.scrollManagement.disableScroll()
+    // this.pageEvents.scrollManagement.disableScroll()
 
     each(this.pageElements.images, (element) => {
       element.onload = (_) => this.onAssetLoaded(element)
@@ -58,7 +58,7 @@ export default class Preloader extends Component {
         duration: 1,
         // resolve,
         onComplete: () => {
-          this.pageEvents.scrollManagement.enableScroll()
+          // this.pageEvents.scrollManagement.enableScroll()
         },
       })
 

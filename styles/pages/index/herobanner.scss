@@ -8,18 +8,21 @@
 }
 
 .index__herobanner__image__wrapper {
-  // height: 100vh;
-  // height: 47rem;
+  position: relative;
   height: 66vh;
 
   @include media('<phone') {
     height: 80rem;
-    position: relative;
   }
 }
 
 .index__herobanner__image {
-  width: 100%;
+  // width: 100%;
+  position: absolute;
+  left: 50%;
+  // top: 50%;
+  transform: translate(-50%, 0%);
+  height: 100vh;
 
   @include media('<phone') {
     width: unset;
@@ -41,7 +44,15 @@
 
 
   .index__herobanner__title  {
+    overflow: hidden;
     width: 100%;
+    line-height: 0.85;
+    padding: 2.4rem 0;
+
+    span {
+      // visibility: hidden;
+      display: inline-block;
+    }
 
 
     &:nth-of-type(1) {
