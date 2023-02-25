@@ -32,11 +32,20 @@
 
   .index__worldsupports__paragraph {
     text-transform: uppercase;
+    position:relative;
     margin: auto;
     font-family: $font-noto;
-    width: 40%;
+    width: 50rem;
     text-align: center;
     color: $color-white;
+
+    span {
+      display: inline-block;
+    }
+
+    span span {
+      visibility: hidden;
+    }
 
     @include media('<phone') {
       width: unset;
@@ -78,6 +87,7 @@
       font-family: $font-montserrat;
       width: 90%;
       font-weight: 800;
+      line-height: 0.9;
 
       @include media('<phone') {
         width: unset;
@@ -101,7 +111,7 @@
 }
 
 .index__worldsupports__map__image__wrapper {
-
+  overflow: visible;
 }
 
 .index__worldsupports__map__image {

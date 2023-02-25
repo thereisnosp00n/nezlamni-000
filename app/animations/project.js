@@ -10,14 +10,103 @@ export default class Project {
     this.getElements()
     this.shiftAmount = this.expandWrapper.getBoundingClientRect().height
     this.setElements()
-    this.addEventListeners()
+    // this.addEventListeners()
     this.initExpandTimeline()
+    this.createObservers()
 
     this.expanded = false
   }
 
   animateIn() {
     this.expandTimeline.restart()
+  }
+
+  animateInImage() {
+    GSAP.from(this.imageWrapper, {
+      autoAlpha: 0,
+      duration: 0.5,
+    })
+
+    GSAP.from(this.image, {
+      scale: 1,
+      duration: 3.5,
+      ease: 'linear',
+    })
+
+    GSAP.to(this.topLine, {
+      width: '100%',
+      duration: 1.75,
+      ease: 'power3.out',
+    })
+
+    GSAP.from(this.projectNumber, {
+      autoAlpha: 0,
+      filter: 'blur(1.5px)',
+      duration: 0.5,
+    })
+  }
+
+  animateInContent() {
+    GSAP.from(this.title, {
+      y: '3rem',
+      autoAlpha: 0,
+      duration: 0.65,
+      ease: 'power3.out',
+    })
+
+    GSAP.from([this.goal, this.button, this.details], {
+      delay: 0.25,
+      autoAlpha: 0,
+      duration: 0.5,
+      stagger: {
+        amount: 0.5,
+      },
+      onComplete: () => {
+        this.addEventListeners()
+      },
+    })
+  }
+
+  createObservers() {
+    this.observers = []
+
+    const imageOptions = {
+      root: null,
+      rootMargin: '-25% 0% -25% 0%',
+      threshold: 0.15,
+    }
+
+    this.createObserver(
+      this.imageWrapper,
+      imageOptions,
+      this.animateInImage.bind(this)
+    )
+
+    const contentOptions = {
+      root: null,
+      rootMargin: '-25% 0% -25% 0%',
+      threshold: 0.0,
+    }
+
+    this.createObserver(
+      this.title,
+      contentOptions,
+      this.animateInContent.bind(this)
+    )
+  }
+
+  createObserver(element, options, method) {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          method(element)
+          observer.unobserve(element)
+        } else {
+          //this.animateOut()
+        }
+      })
+    }, options)
+    observer.observe(element)
   }
 
   initExpandTimeline() {
@@ -116,7 +205,7 @@ export default class Project {
   hide() {
     this.expanded = false
 
-    GSAP.to(this.handlerArray, {
+    GSAP.to(this.expandableContent, {
       autoAlpha: 0,
       duration: 0.5,
       ease: 'power3.in',
@@ -170,9 +259,21 @@ export default class Project {
   }
 
   getElements() {
+    this.projectNumber = this.element.querySelector('.index__project__number')
+    this.title = this.element.querySelector('.index__project__title')
+
     this.details = this.element.querySelector(
       '.index__project__details__button'
     )
+
+    this.imageWrapper = this.element.querySelector(
+      '.index__project__image__wrapper'
+    )
+
+    this.goal = this.element.querySelector('.index__project__goal')
+
+    this.image = this.imageWrapper.querySelector('img')
+    this.topLine = this.element.querySelector('.index__project__line')
 
     this.button = this.element.querySelector('.index__project__support__button')
 
@@ -191,7 +292,7 @@ export default class Project {
   }
 
   hideElements() {
-    each(this.handlerArray, (element) => {
+    each(this.expandableContent, (element) => {
       element.style.visibility = 'hidden'
     })
   }
@@ -199,18 +300,39 @@ export default class Project {
   setElements() {
     this.handlerArray = []
 
-    this.handlerArray.push(
+    this.expandableContent = [
+      ...this.list,
       this.subtitle,
       this.paragraphs,
-      this.line,
       this.needed,
-      ...this.list
+      this.line,
+    ]
+
+    this.handlerArray.push(
+      this.goal,
+      this.button,
+      this.details,
+      this.title,
+      this.imageWrapper,
+      this.projectNumber
     )
+
+    each(this.handlerArray, (element) => {
+      element.style.visibility = 'hidden'
+    })
 
     this.hideElements()
 
     GSAP.set(this.expandWrapper, {
       height: '0',
+    })
+
+    GSAP.set(this.image, {
+      scale: 1.25,
+    })
+
+    GSAP.set(this.topLine, {
+      width: '0%',
     })
   }
 

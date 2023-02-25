@@ -67,6 +67,7 @@ const requestDefaults = async (api, lang) => {
     navigation,
     miscellaneous,
     fetchSVG,
+    insertBr,
     helpers,
   }
 }
@@ -104,6 +105,7 @@ app.get(
     next()
   })
 )
+
 function fetchSVG(imageUrl) {
   function includesMatch(lookupValue, urlString) {
     const re = new RegExp(lookupValue, 'i')
@@ -115,6 +117,11 @@ function fetchSVG(imageUrl) {
   }
 
   return imageUrl
+}
+
+function insertBr(content) {
+  content = content.replace(/\n?\r\n/g, '<br />')
+  return content
 }
 
 app.listen(port, () => {

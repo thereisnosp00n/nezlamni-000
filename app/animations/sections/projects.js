@@ -15,23 +15,6 @@ export default class Projects {
 
   animateIn() {}
 
-  createObserver() {
-    this.observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.animateIn()
-            this.observer.unobserve(this.element)
-          } else {
-            //this.animateOut()
-          }
-        })
-      },
-      { rootMargin: '50px 50px 50px 50px' }
-    )
-    this.observer.observe(this.element)
-  }
-
   getElements() {
     const projects = document.querySelectorAll('.index__project__wrapper')
     this.projects = map(projects, (element) => {

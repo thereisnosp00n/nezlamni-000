@@ -9,6 +9,7 @@ import Gallery from 'animations/sections/gallery'
 import CreatedBy from 'animations/sections/createdby'
 import HeroBanner from 'animations/sections/herobanner'
 import Intro from 'animations/sections/intro'
+import WorldSupports from '../../animations/sections/worldsupports'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -19,6 +20,7 @@ export default class Index extends Page {
         wrapper: '.index__wrapper',
         herobanner: '.index__herobanner__wrapper',
         intro: '.index__intro__wrapper',
+        worldsupports: '.index__worldsupports__wrapper',
         projects: '.index__projects',
         gallery: '.index__gallery__wrapper',
         createdby: '.index__createdby__wrapper',
@@ -54,6 +56,11 @@ export default class Index extends Page {
 
     this.introAnimations = new Intro({
       element: this.pageElements.intro,
+      pageEvents: this.pageEvents,
+    })
+
+    this.worldsupportsAnimations = new WorldSupports({
+      element: this.pageElements.worldsupports,
       pageEvents: this.pageEvents,
     })
 

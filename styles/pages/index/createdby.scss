@@ -15,6 +15,10 @@
     margin: auto;
     text-align: center;
 
+    span span {
+      visibility: hidden;
+    }
+
     a {
       color: $color-blue;
       @extend %link--hidden;
@@ -62,6 +66,7 @@
 
   .index__createdby__logo__wrapper {
     mix-blend-mode: multiply;
+    overflow: visible;
 
     @include media('<phone') {
       margin: 1.2rem 0;

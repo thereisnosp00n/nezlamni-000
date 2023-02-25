@@ -37,7 +37,7 @@ block content
             img.index__worldsupports__wrapper__image(data-src=root.worldsupports_image.url crossorigin='anonymous')
 
           .index__worldsupports__paragraphs__wrapper
-            each paragraph in root.worldsupports_paragraphs
+            each paragraph, i in root.worldsupports_paragraphs
               .index__worldsupports__paragraph !{helpers.asHTML(paragraph.paragraph)}
 
           .index__worldsupports__map__wrapper

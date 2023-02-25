@@ -18,6 +18,8 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
+/*! ../../animations/sections/worldsupports */
+
 /*! ../project */
 
 /*! ./BaseClient */
@@ -997,6 +999,10 @@
 /*!*************************************************!*\
   !*** ./node_modules/lodash/_listCacheDelete.js ***!
   \*************************************************/
+
+/*!**************************************************!*\
+  !*** ./app/animations/sections/worldsupports.js ***!
+  \**************************************************/
 
 /*!**************************************************!*\
   !*** ./node_modules/lodash/_baseIsTypedArray.js ***!

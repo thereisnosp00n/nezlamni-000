@@ -42,9 +42,13 @@
   
   .index__project__image__wrapper {
     width: 100%;
+    position: relative;
   }
   
   .index__project__image {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
     width: 100%;
   }
   
