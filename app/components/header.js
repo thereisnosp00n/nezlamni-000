@@ -9,6 +9,7 @@ export default class Header extends Component {
       contentDiv: '.header',
       pageElements: {
         wrapper: '.header__wrapper',
+        links: '.header__button__link',
       },
     })
 
@@ -17,6 +18,29 @@ export default class Header extends Component {
     this.timeline = GSAP.timeline()
     this.visible = true
     this.fixed = true
+
+    this.getElements()
+
+    // setTimeout(() => {
+    //   this.onResize()
+    // }, 7500)
+  }
+
+  addAnchors() {
+    this.pageElements.links[0].addEventListener('click', () => {
+      this.hideHeader()
+      this.pageEvents.eventEmitter.emit('scrollTo', this.sectionsHeights[4])
+    })
+
+    this.pageElements.links[1].addEventListener('click', () => {
+      this.hideHeader()
+      this.pageEvents.eventEmitter.emit('scrollTo', this.sectionsHeights[5])
+    })
+
+    this.pageElements.links[2].addEventListener('click', () => {
+      this.hideHeader()
+      this.pageEvents.eventEmitter.emit('scrollTo', this.sectionsHeights[7])
+    })
   }
 
   hideHeader() {
@@ -73,9 +97,23 @@ export default class Header extends Component {
       this.fixed = false
       this.showHeader()
     })
+
+    this.addAnchors()
   }
 
   onResize() {
     this.shiftAmount = this.pageElements.wrapper.offsetHeight
+
+    this.sectionsHeights = []
+
+    each(this.sections, (element) => {
+      this.sectionsHeights.push(element.getBoundingClientRect().y)
+    })
+
+    console.log(this.sectionsHeights)
+  }
+
+  getElements() {
+    this.sections = document.querySelectorAll('section')
   }
 }

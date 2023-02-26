@@ -51,6 +51,7 @@ export default class Index extends Page {
   createCustomEvents() {
     this.pageEvents.eventEmitter.on('onResize', () => {
       super.onResize()
+      this.header.onResize()
     })
   }
 
@@ -115,7 +116,7 @@ export default class Index extends Page {
   }
 
   createLayout(events) {
-    this.header = new Header({ pageEvents: events })
+    this.header = new Header({ pageEvents: this.pageEvents })
 
     // this.header.showHeader()
     this.header.hideHeader()
@@ -179,6 +180,10 @@ export default class Index extends Page {
 
     this.pageEvents.eventEmitter.on('form-closed', () => {
       super.callPopupClose()
+    })
+
+    this.pageEvents.eventEmitter.on('scrollTo', (value) => {
+      super.scrollTo(value)
     })
 
     this.pageEvents.eventEmitter.on('form-success', () => {

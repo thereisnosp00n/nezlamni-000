@@ -34,12 +34,19 @@ export default class HowToHelp {
     })
 
     GSAP.from(this.cryptoCards, {
-      y: '-6rem',
+      y: '6rem',
       autoAlpha: 0,
       duration: 0.75,
       ease: 'power3.out',
       stagger: {
         amount: 0.9,
+      },
+      onComplete: () => {
+        each(this.copyButtons, (element) => {
+          element.addEventListener('click', () => {
+            this.copyValue(element)
+          })
+        })
       },
     })
   }
@@ -67,7 +74,88 @@ export default class HowToHelp {
       autoAlpha: 0,
       y: '3rem',
       duration: 0.75,
+      onComplete: () => {
+        this.addButtonEventListeners()
+      },
     })
+  }
+
+  animateCopyButton(element) {
+    const captionElement = element.querySelector(
+      '.index__howtohelp__crypto__card__button__caption'
+    )
+
+    const originalCaption = captionElement.textContent
+
+    const changedCaption = element.querySelector(
+      '.index__howtohelp__crypto__card__button__copied__caption'
+    ).textContent
+
+    const copyTimeline = GSAP.timeline()
+
+    copyTimeline.add(
+      GSAP.to(
+        captionElement,
+        {
+          autoAlpha: 0,
+          duration: 0.35,
+          onComplete: () => {
+            captionElement.textContent = changedCaption
+            captionElement.classList.remove('notclicked')
+          },
+        },
+        '>'
+      )
+    )
+
+    copyTimeline.add(
+      GSAP.to(
+        captionElement,
+        {
+          autoAlpha: 1,
+          color: '#656565',
+          duration: 0.35,
+        },
+        '>'
+      )
+    )
+
+    copyTimeline.add(
+      GSAP.to(
+        captionElement,
+        {
+          delay: 1.5,
+          autoAlpha: 0,
+          duration: 0.35,
+          onComplete: () => {
+            captionElement.textContent = originalCaption
+            captionElement.classList.add('notclicked')
+          },
+        },
+        '>'
+      )
+    )
+
+    copyTimeline.add(
+      GSAP.to(
+        captionElement,
+        {
+          autoAlpha: 1,
+          duration: 0.35,
+          color: '#FFE459',
+        },
+        '>'
+      )
+    )
+
+    copyTimeline.restart()
+  }
+
+  copyValue(element) {
+    const value = element.getAttribute('value')
+    navigator.clipboard.writeText(value)
+
+    this.animateCopyButton(element)
   }
 
   createObservers() {
@@ -137,6 +225,36 @@ export default class HowToHelp {
     this.observers.push(observer)
   }
 
+  hoverOnButton() {
+    GSAP.to(this.button, {
+      backgroundColor: '#FFE459',
+      boxShadow: '0px 5px 12px rgba(255, 228, 89, 0.35)',
+      duration: 0.25,
+      overwrite: true,
+    })
+
+    GSAP.to(this.button.querySelector('p'), {
+      color: '#0F0F0F',
+      duration: 0.25,
+      overwrite: true,
+    })
+  }
+
+  hoverOffButton() {
+    GSAP.to(this.button, {
+      backgroundColor: 'rgba(15, 15, 15, 0)',
+      boxShadow: '0px 0px 0px rgba(255, 228, 89, 0.35)',
+      duration: 0.25,
+      overwrite: true,
+    })
+
+    GSAP.to(this.button.querySelector('p'), {
+      color: '#FFE459',
+      duration: 0.25,
+      overwrite: true,
+    })
+  }
+
   getElements() {
     this.title = this.element.querySelector('.index__howtohelp__title')
 
@@ -163,6 +281,9 @@ export default class HowToHelp {
     this.button = this.element.querySelector(
       '.index__howtohelp__cardpayment__button'
     )
+    this.copyButtons = this.element.querySelectorAll(
+      '.index__howtohelp__crypto__card__button'
+    )
   }
 
   setElements() {
@@ -182,6 +303,32 @@ export default class HowToHelp {
 
     each(this.handlerArray, (element) => {
       element.style.visibility = 'hidden'
+    })
+
+    each(this.copyButtons, (element) => {
+      const captionElement = element.querySelector(
+        '.index__howtohelp__crypto__card__button__caption'
+      )
+
+      captionElement.classList.add('notclicked')
+    })
+  }
+
+  addCopyEventListeners() {
+    each(this.copyButtons, (element) => {
+      element.addEventListener('click', () => {
+        this.copyValue(element)
+      })
+    })
+  }
+
+  addButtonEventListeners() {
+    this.button.addEventListener('mouseenter', () => {
+      this.hoverOnButton()
+    })
+
+    this.button.addEventListener('mouseleave', () => {
+      this.hoverOffButton()
     })
   }
 }

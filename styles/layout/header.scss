@@ -30,6 +30,7 @@
 .header__button__link {
   color: $color-black;
   @extend %paragraphs-18;
+  @extend %link--hidden;
   font-size: 1.6rem;
   font-weight: 600;
   margin-left: 3.6rem;

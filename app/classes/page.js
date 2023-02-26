@@ -246,6 +246,12 @@ export default class Page {
     this.scroll.min = this.scroll.current
   }
 
+  scrollTo(value) {
+    const delta = -(this.scroll.current - value)
+
+    this.scroll.target += delta
+  }
+
   setLimits(limit, skip) {
     if (skip == true) {
       this.skipping = true

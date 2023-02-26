@@ -111,10 +111,11 @@ block content
                     .index__howtohelp__crypto__card__name !{(card.name)}
                   .index__howtohelp__crypto__card__wallet !{(card.wallet)}
 
-                  .index__howtohelp__crypto__card__button
+                  .index__howtohelp__crypto__card__button(value=card.wallet)
                     figure.index__howtohelp__crypto__card__button__icon__wrapper
                       img.index__howtohelp__crypto__card__button__icon(data-src=fetchSVG(misc.copy_icon.url) crossorigin='anonymous')
                     .index__howtohelp__crypto__card__button__caption !{(root.copy_cta)}
+                    .index__howtohelp__crypto__card__button__copied__caption !{(root.copied_cta)}
                 //- .index__howtohelp__crypto__card__line
 
           .index__howtohelp__wire__wrapper 
@@ -154,7 +155,7 @@ block content
 
           .index__howtohelp__cardpayment__wrapper
             .index__howtohelp__cardpayment__button
-              .index__howtohelp__cardpayment__button__caption !{(root.cardpayment_cta)}  
+              .index__howtohelp__cardpayment__button__caption !{helpers.asHTML(root.cardpayment_cta)}  
 
       section.index__gallery
         .index__gallery__wrapper
