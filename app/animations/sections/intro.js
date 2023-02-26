@@ -103,8 +103,6 @@ export default class Intro {
 
     this.handlerArray.push(...this.paragraphs, ...this.imageWrappers)
 
-    console.log(this.handlerArray)
-
     each(this.imageWrappers, (element) => {
       element.style.visibility = 'hidden'
     })

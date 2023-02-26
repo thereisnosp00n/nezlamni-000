@@ -13,25 +13,42 @@ export default class Gallery {
     this.initAnimation()
   }
 
-  createObserver() {
-    this.observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.animateIn()
-            this.observer.unobserve(this.element)
-          } else {
-            //this.animateOut()
-          }
-        })
-      },
-      { rootMargin: '50px 50px 50px 50px' }
-    )
-    this.observer.observe(this.element)
+  animateHeader() {
+    GSAP.to(this.element, {
+      backgroundColor: '#0F0F0F',
+      duration: 1.25,
+    })
+
+    GSAP.to(this.titleSpans, {
+      autoAlpha: 1,
+      duration: 0.75,
+    })
+
+    GSAP.to(this.galleryWrapper, {
+      delay: 0.5,
+      autoAlpha: 1,
+      duration: 1.25,
+      ease: 'power3.out',
+    })
+  }
+
+  createObserver(element, options, method) {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          method(element)
+          observer.unobserve(element)
+        } else {
+          //this.animateOut()
+        }
+      })
+    }, options)
+    observer.observe(element)
+    this.observers.push(observer)
   }
 
   getElements() {
-    this.title = this.element.querySelector('.index__gallery__title')
+    this.titleSpans = this.element.querySelector('.index__gallery__title')
 
     this.galleryWrapper = this.element.querySelector(
       '.index__gallery__images__slider__wrapper'
@@ -127,9 +144,33 @@ export default class Gallery {
     this.imageWidth = this.images[0].getBoundingClientRect().width
     this.wrapperWidth = this.imageWidth * (this.images.length + 0.1)
 
+    this.handlerArray = [this.titleSpans, this.galleryWrapper]
+
+    each(this.handlerArray, (element) => {
+      element.style.visibility = 'hidden'
+    })
+
     GSAP.set(this.images, {
       x: (i) => i * this.imageWidth,
     })
+
+    GSAP.set(this.element, {
+      backgroundColor: '#1E2223',
+    })
+
+    this.observers = []
+
+    const titleOptions = {
+      root: null,
+      rootMargin: '-25% 0% -25% 0%',
+      threshold: 0.5,
+    }
+
+    this.createObserver(
+      this.titleSpans,
+      titleOptions,
+      this.animateHeader.bind(this)
+    )
   }
 
   addEventListeners() {

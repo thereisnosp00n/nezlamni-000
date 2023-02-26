@@ -50,6 +50,9 @@ export default class HeroBanner {
         height: this.imageWrapperHeight,
         duration: 2.25,
         ease: 'power3.out',
+        onComplete: () => {
+          this.pageEvents.eventEmitter.emit('onResize')
+        },
       },
       '>-1.5'
     )
@@ -62,7 +65,6 @@ export default class HeroBanner {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('animating')
             this.animateInTitle(element, 0, false)
             this.observer.unobserve(element)
           } else {
@@ -106,8 +108,6 @@ export default class HeroBanner {
     // each(this.titles, (element) => {
     //   this.createObserver(element)
     // })
-
-    console.log(this.titlesSpans)
 
     this.createObserver(this.titlesSpans[1])
 

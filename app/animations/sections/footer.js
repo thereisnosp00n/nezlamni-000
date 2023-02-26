@@ -1,10 +1,7 @@
 import GSAP from 'gsap'
 import each from 'lodash/each'
-import map from 'lodash/map'
-import Project from '../project'
-import { split, calculate } from 'utils/text'
 
-export default class Projects {
+export default class Footer {
   constructor({ element, pageEvents }) {
     this.element = element
     this.pageEvents = pageEvents
@@ -15,13 +12,21 @@ export default class Projects {
   }
 
   animateIn() {
-    const spans = this.title.querySelector('span')
-
-    GSAP.from(spans, {
-      autoAlpha: 0,
-      yPercent: 100,
-      duration: 1,
+    GSAP.to(this.line, {
+      width: '100%',
+      duration: 1.5,
       ease: 'power3.out',
+    })
+
+    GSAP.from(this.logos, {
+      delay: 0.5,
+      autoAlpha: 0,
+      scale: 1.25,
+      duration: 0.75,
+      ease: 'power3.out',
+      stagger: {
+        amount: 0.9,
+      },
     })
   }
 
@@ -41,31 +46,27 @@ export default class Projects {
   }
 
   getElements() {
-    const projects = document.querySelectorAll('.index__project__wrapper')
-    this.projects = map(projects, (element) => {
-      return new Project({ element, pageEvents: this.pageEvents })
-    })
-
-    this.title = this.element.querySelector('.index__projects__title')
+    this.line = this.element.querySelector('.footer__line')
+    this.logos = this.element.querySelectorAll('.footer__logo__wrapper')
   }
 
   setElements() {
-    split({ element: this.title, expression: '<br>' })
+    GSAP.set(this.line, {
+      width: '0%',
+    })
+
+    each(this.logos, (element) => {
+      element.style.visibility = 'hidden'
+    })
 
     this.observers = []
 
-    const titleOptions = {
+    const lineOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
+      rootMargin: '0% 0% 0% 0%',
       threshold: 0.0,
     }
 
-    this.createObserver(this.title, titleOptions, this.animateIn.bind(this))
-  }
-
-  onResize() {
-    each(this.projects, (element) => {
-      element.onResize()
-    })
+    this.createObserver(this.line, lineOptions, this.animateIn.bind(this))
   }
 }

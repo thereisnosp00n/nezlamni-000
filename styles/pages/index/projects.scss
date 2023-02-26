@@ -18,6 +18,12 @@
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 7.2rem;
+  overflow: hidden;
+
+  span {
+    visibility: hidden;
+    display: inline-block;
+  }
 
   @include media('<phone') {
     font-size: 9.2rem;

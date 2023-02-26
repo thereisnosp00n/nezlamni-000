@@ -53,7 +53,6 @@ export default class Cursor {
   }
 
   addEventListeners() {
-    console.log('Added')
     each(this.links, (element) => {
       element.addEventListener('mouseenter', () => this.cursorEnter())
       element.addEventListener('mouseleave', () => this.cursorLeave())

@@ -33,7 +33,6 @@ export default class Image {
   }
 
   setElements() {
-    console.log('1')
     GSAP.set(this.expandWrapper, {
       height: '0%',
     })

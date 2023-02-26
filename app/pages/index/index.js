@@ -9,7 +9,11 @@ import Gallery from 'animations/sections/gallery'
 import CreatedBy from 'animations/sections/createdby'
 import HeroBanner from 'animations/sections/herobanner'
 import Intro from 'animations/sections/intro'
-import WorldSupports from '../../animations/sections/worldsupports'
+import WorldSupports from 'animations/sections/worldsupports'
+import HowToHelp from 'animations/sections/howtohelp'
+import BringVictory from 'animations/sections/bringvictory'
+import Invincibles from 'animations/sections/invincibles'
+import Footer from '../../animations/sections/footer'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -24,6 +28,10 @@ export default class Index extends Page {
         projects: '.index__projects',
         gallery: '.index__gallery__wrapper',
         createdby: '.index__createdby__wrapper',
+        howtohelp: '.index__howtohelp__wrapper',
+        bringvictory: '.index__bringvictory__wrapper',
+        invincibles: '.index__invincibles__wrapper',
+        footer: '.footer__wrapper',
       },
     })
 
@@ -76,6 +84,26 @@ export default class Index extends Page {
 
     this.createdbyAnimations = new CreatedBy({
       element: this.pageElements.createdby,
+      pageEvents: this.pageEvents,
+    })
+
+    this.howtohelpAnimations = new HowToHelp({
+      element: this.pageElements.howtohelp,
+      pageEvents: this.pageEvents,
+    })
+
+    this.bringvictoryAnimations = new BringVictory({
+      element: this.pageElements.bringvictory,
+      pageEvents: this.pageEvents,
+    })
+
+    this.invinciblesAnimations = new Invincibles({
+      element: this.pageElements.invincibles,
+      pageEvents: this.pageEvents,
+    })
+
+    this.footerAnimations = new Footer({
+      element: this.pageElements.footer,
       pageEvents: this.pageEvents,
     })
 
