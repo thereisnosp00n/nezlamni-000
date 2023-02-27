@@ -6,6 +6,22 @@
   background-color: $color-white;
   color: $color-black;
   padding-top: 6rem;
+
+  @include media('<tablet') {
+    padding-top: 18rem;
+  }
+
+  @include media('<tablet-v') {
+    bottom: -36rem;
+  }
+
+  @include media('<laptop') {
+    padding-top: 12rem;
+  }
+
+  @include media('<phone') {
+    padding-top: 0rem;
+  }
 }
 
 .index__createdby__paragraphs__wrapper{
@@ -67,6 +83,14 @@
   .index__createdby__logo__wrapper {
     mix-blend-mode: multiply;
     overflow: visible;
+
+    @include media('<tablet-v') {
+      margin: 1.2rem 2.4rem;
+      min-width: 40%;
+      display: flex;
+      justify-content: center;
+      
+    }
 
     @include media('<phone') {
       margin: 1.2rem 0;

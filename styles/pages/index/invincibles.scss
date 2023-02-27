@@ -97,6 +97,8 @@
 .index__invincibles__getintouch__contact  {
   font-family: $font-noto;
   font-size: 1.8rem;
+  line-height: 2;
+  @extend %link--hidden;
 
   @include media('<phone') {
     font-size: 2.4rem;

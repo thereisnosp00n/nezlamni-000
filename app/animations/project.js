@@ -351,6 +351,6 @@ export default class Project {
   }
 
   onResize() {
-    // this.shiftAmount = this.expandWrapper.getBoundingClientRect()
+    this.shiftAmount = this.expandWrapper.getBoundingClientRect()
   }
 }

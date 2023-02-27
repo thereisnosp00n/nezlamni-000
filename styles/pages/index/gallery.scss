@@ -104,6 +104,7 @@
 }
 
 .index__gallery__controls__arrow__wrapper {
+  position: relative;
   border: 1px solid $color-gray;
   border-radius: 50%;
   width: 6.4rem;
@@ -121,8 +122,8 @@
 }
 
 .index__gallery__controls__arrow {
-
-
+  position: absolute;
+  left: 45%;
 }
 
 .index__gallery__line {

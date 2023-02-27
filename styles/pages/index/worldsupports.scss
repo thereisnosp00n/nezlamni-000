@@ -35,7 +35,7 @@
     position:relative;
     margin: auto;
     font-family: $font-noto;
-    width: 50rem;
+    width: 60rem;
     text-align: center;
     color: $color-white;
 
@@ -103,6 +103,18 @@
 .index__worldsupports__map__wrapper {
   position: absolute;
   bottom: -27.5rem;
+
+  @include media('<laptop') {
+    bottom: -36rem;
+  }
+
+  @include media('<tablet-v') {
+    bottom: -58rem;
+  }
+
+  @include media('<tablet') {
+    bottom: -42rem;
+  }
 
   @include media('<phone') {
     width: 100%;

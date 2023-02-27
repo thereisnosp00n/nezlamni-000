@@ -74,6 +74,7 @@
 }
 
 .index__bringvictory__social{
+  height: 60%;
   @include media('<phone') {
     height: 3.2rem;
   }

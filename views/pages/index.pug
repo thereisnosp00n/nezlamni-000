@@ -183,12 +183,17 @@ block content
           .index__bringvictory__paragraphs !{helpers.asHTML(root.bringvictory_paragraphs)}
 
           .index__bringvictory__socials__wrapper
-            figure.index__bringvictory__social__wrapper
-              img.index__bringvictory__social(data-src=fetchSVG(misc.twitter_icon.url) crossorigin='anonymous')
-            figure.index__bringvictory__social__wrapper
-              img.index__bringvictory__social(data-src=fetchSVG(misc.facebook_icon.url) crossorigin='anonymous')
-            figure.index__bringvictory__social__wrapper
-              img.index__bringvictory__social(data-src=fetchSVG(misc.link_icon.url) crossorigin='anonymous')
+            a(href='/')
+              figure.index__bringvictory__social__wrapper
+                img.index__bringvictory__social(data-src=fetchSVG(misc.twitter_icon.url) crossorigin='anonymous')
+                
+            a(href='/')  
+              figure.index__bringvictory__social__wrapper
+                img.index__bringvictory__social(data-src=fetchSVG(misc.facebook_icon.url) crossorigin='anonymous')
+
+            a(href='/')  
+              figure.index__bringvictory__social__wrapper
+                img.index__bringvictory__social(data-src=fetchSVG(misc.link_icon.url) crossorigin='anonymous')
 
       section.index__invincibles            
         .index__invincibles__wrapper
