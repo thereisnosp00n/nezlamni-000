@@ -176,7 +176,7 @@ export default class HowToHelp {
     const cryptoOptions = {
       root: null,
       rootMargin: '-25% 0% -25% 0%',
-      threshold: 0.5,
+      threshold: 0.0,
     }
 
     this.createObserver(
@@ -188,7 +188,7 @@ export default class HowToHelp {
     const wireOptions = {
       root: null,
       rootMargin: '-25% 0% -25% 0%',
-      threshold: 0.25,
+      threshold: 0.05,
     }
 
     this.createObserver(

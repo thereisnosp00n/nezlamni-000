@@ -87,7 +87,11 @@
 
     &:nth-of-type(2) {
       left: 39.6rem;
-      top: 12.4rem
+      top: 12.4rem;
+
+      @include media('<phone') {
+        width: 90%;
+      }
     }
 
     &:nth-of-type(3) {
@@ -107,7 +111,11 @@
 
     &:nth-of-type(6) {
       left: 106.8rem;
-      top: 76rem
+      top: 76rem;
+
+      @include media('<phone') {
+        margin-bottom: 7.2rem;
+      }
     }
 
     @include media('<phone') {

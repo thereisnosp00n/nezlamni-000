@@ -1,6 +1,7 @@
 import GSAP from 'gsap'
 import each from 'lodash/each'
 import { split, calculate } from 'utils/text'
+import DetectionManager from 'classes/detection'
 
 export default class Intro {
   constructor({ element, pageEvents }) {
@@ -62,6 +63,7 @@ export default class Intro {
   }
 
   createImageObserver(element) {
+    const threshold = DetectionManager.isPhone() ? 0.15 : 0.75
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -73,7 +75,7 @@ export default class Intro {
           }
         })
       },
-      { threshold: 0.75 }
+      { threshold }
     )
     observer.observe(element)
     this.observers.push(observer)

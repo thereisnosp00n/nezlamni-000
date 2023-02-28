@@ -134,8 +134,10 @@ export default class Gallery {
         x: (x) => mod(parseFloat(x)) + 'px',
       },
       onComplete: () => {
-        this.timeline.invalidate()
-        this.timeline.restart()
+        // setTimeout(() => {
+        //   this.timeline.invalidate()
+        //   this.timeline.restart()
+        // }, 5000)
       },
     })
   }

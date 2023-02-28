@@ -1,8 +1,13 @@
 .header
   .header__wrapper
-    figure.header__logo__wrapper
-      img.header__logo(data-src=misc.logo.url crossorigin='anonymous')
-    
+    .header__top__wrapper
+
+      figure.header__logo__wrapper
+        img.header__logo(data-src=misc.logo.url crossorigin='anonymous')
+      figure.header__button__wrapper
+        img.header__open#open(data-src=fetchSVG(navigation.data.menu_icon.url) crossorigin='anonymous') 
+        img.header__close#close(data-src=fetchSVG(navigation.data.menu_close_icon.url) crossorigin='anonymous')     
+
     .header__buttons__wrapper
       a.header__button__link !{(navigation.data.projects)}
       a.header__button__link !{(navigation.data.help)}

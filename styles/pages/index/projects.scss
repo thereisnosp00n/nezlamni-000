@@ -64,8 +64,11 @@
     width: 100%;
 
     @include media('<phone') {
+      position: absolute;
       width: unset;
+      left: -50%;
       height: 100%;
+      // transform: translate(-50%, 0%);
     }
   }
   

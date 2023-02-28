@@ -131,6 +131,8 @@ export default class Index extends Page {
   onTouchDown(event) {
     super.onTouchDown(event)
 
+    this.header.onTouchDown(event)
+
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchDown) {
         element.onTouchDown(event)
@@ -141,6 +143,8 @@ export default class Index extends Page {
   onTouchMove(event) {
     super.onTouchMove(event)
 
+    this.header.onTouchMove(event)
+
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchMove) {
         element.onTouchMove(event)
@@ -150,6 +154,8 @@ export default class Index extends Page {
 
   onTouchUp(event) {
     super.onTouchUp(event)
+
+    this.header.onTouchUp(event)
 
     each(this.sectionAnimations, (element) => {
       if (element && element.onTouchUp) {

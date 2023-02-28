@@ -72,8 +72,8 @@ export default class Project {
 
     const imageOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
-      threshold: 0.15,
+      rootMargin: '-15% 0% -15% 0%',
+      threshold: 0.05,
     }
 
     this.createObserver(
@@ -84,7 +84,7 @@ export default class Project {
 
     const contentOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
+      rootMargin: '-15% 0% -15% 0%',
       threshold: 0.0,
     }
 
@@ -325,6 +325,7 @@ export default class Project {
 
     GSAP.set(this.expandWrapper, {
       height: '0',
+      // scaleY: '0%',
     })
 
     GSAP.set(this.image, {
@@ -351,6 +352,6 @@ export default class Project {
   }
 
   onResize() {
-    this.shiftAmount = this.expandWrapper.getBoundingClientRect()
+    // this.shiftAmount = this.expandWrapper.getBoundingClientRect()
   }
 }

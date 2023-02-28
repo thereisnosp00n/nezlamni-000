@@ -21,6 +21,10 @@
   margin-top: 8rem;
   width: 25rem;
 
+  @include media('<phone') {
+    width: 40rem;
+  }
+
   .index__worldsupports__wrapper__image {
     width: 100%;
   }

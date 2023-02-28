@@ -54,10 +54,10 @@ export default class HeroBanner {
           this.pageEvents.eventEmitter.emit('onResize')
         },
       },
-      '>-1.5'
+      '>-2.25'
     )
 
-    this.animateInTitle(this.titlesSpans[0], -0.75, true)
+    this.animateInTitle(this.titlesSpans[0], -1.5, true)
   }
 
   createObserver(element) {

@@ -11,7 +11,6 @@ export default class BringVictory {
     this.getElements()
     this.setElements()
     this.createObservers()
-    this.addEventListeners()
   }
 
   animateInTitle() {
@@ -51,6 +50,9 @@ export default class BringVictory {
       duration: 1,
       stagger: {
         amount: 0.5,
+      },
+      onComplete: () => {
+        this.addEventListeners()
       },
     })
   }
