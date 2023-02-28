@@ -19,13 +19,11 @@ export default class Footer {
     })
 
     GSAP.from(this.logos, {
-      delay: 0.5,
       autoAlpha: 0,
-      scale: 1.25,
       duration: 0.75,
       ease: 'power3.out',
       stagger: {
-        amount: 0.9,
+        amount: 0.6,
       },
     })
   }

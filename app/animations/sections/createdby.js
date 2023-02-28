@@ -16,12 +16,11 @@ export default class CreatedBy {
   animateInLogos() {
     GSAP.from(this.logoWrappers, {
       autoAlpha: 0,
-      y: '3rem',
-      scale: 1.25,
-      duration: 0.75,
+      y: '1.6rem',
+      duration: 0.5,
       ease: 'power3.out',
       stagger: {
-        amount: 0.9,
+        amount: 0.5,
       },
     })
   }
@@ -33,8 +32,11 @@ export default class CreatedBy {
       autoAlpha: 0,
       duration: 0.65,
       ease: 'linear',
-      filter: 'blur(2.5px)',
-      stagger: { amount: 0.5, from: 'random' },
+      // filter: 'blur(2.5px)',
+      stagger: {
+        amount: 0.5,
+        // from: 'random'
+      },
     })
   }
 

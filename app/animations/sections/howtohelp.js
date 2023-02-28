@@ -59,9 +59,8 @@ export default class HowToHelp {
 
     GSAP.from(this.wireCards, {
       autoAlpha: 0,
-      filter: 'blur(10px)',
-      duration: 0.95,
-      y: '6rem',
+      duration: 0.65,
+      y: '3rem',
       ease: 'power3.out',
       stagger: {
         amount: 0.5,
@@ -187,7 +186,7 @@ export default class HowToHelp {
 
     const wireOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
+      rootMargin: '-15% 0% -15% 0%',
       threshold: 0.05,
     }
 

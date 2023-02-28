@@ -13,7 +13,7 @@ import WorldSupports from 'animations/sections/worldsupports'
 import HowToHelp from 'animations/sections/howtohelp'
 import BringVictory from 'animations/sections/bringvictory'
 import Invincibles from 'animations/sections/invincibles'
-import Footer from '../../animations/sections/footer'
+import Footer from 'animations/sections/footer'
 
 export default class Index extends Page {
   constructor({ pageEvents }) {
@@ -52,6 +52,10 @@ export default class Index extends Page {
     this.pageEvents.eventEmitter.on('onResize', () => {
       super.onResize()
       this.header.onResize()
+    })
+
+    this.pageEvents.eventEmitter.on('herobanner-animated', () => {
+      this.header.showHeader()
     })
   }
 

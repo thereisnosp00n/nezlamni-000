@@ -50,21 +50,24 @@ export default class Project {
     GSAP.from(this.title, {
       y: '3rem',
       autoAlpha: 0,
-      duration: 0.65,
+      duration: 0.55,
       ease: 'power3.out',
     })
 
-    GSAP.from([this.goal, this.button, this.details], {
-      delay: 0.25,
-      autoAlpha: 0,
-      duration: 0.5,
-      stagger: {
-        amount: 0.5,
+    GSAP.from(
+      [this.goal, this.button, this.details],
+      {
+        autoAlpha: 0,
+        duration: 0.25,
+        stagger: {
+          amount: 0.5,
+        },
+        onComplete: () => {
+          this.addEventListeners()
+        },
       },
-      onComplete: () => {
-        this.addEventListeners()
-      },
-    })
+      '>-0.5'
+    )
   }
 
   createObservers() {
@@ -84,7 +87,7 @@ export default class Project {
 
     const contentOptions = {
       root: null,
-      rootMargin: '-15% 0% -15% 0%',
+      rootMargin: '-10% 0% -10% 0%',
       threshold: 0.0,
     }
 

@@ -38,6 +38,10 @@ export default class HeroBanner {
   }
 
   animateInImage() {
+    setTimeout(() => {
+      this.pageEvents.eventEmitter.emit('herobanner-animated')
+    }, 1000)
+
     this.timeline.to(this.image, {
       height: '100vh',
       duration: 2.5,
@@ -54,9 +58,8 @@ export default class HeroBanner {
           this.pageEvents.eventEmitter.emit('onResize')
         },
       },
-      '>-2.25'
+      '>-2.5'
     )
-
     this.animateInTitle(this.titlesSpans[0], -1.5, true)
   }
 

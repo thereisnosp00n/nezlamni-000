@@ -7,7 +7,7 @@
 }
 
 .header__wrapper {
-  height: 8.8rem;
+  height: 7.2rem;
   background-color: $color-yellow;
   padding: 1.6rem 3.6rem;
   display: flex;
@@ -16,9 +16,11 @@
   overflow: hidden;
 
   @include media('<phone') {
-    height: 9.6rem;
+    height: 7.2rem;
     flex-direction: column;
-    padding: 1.8rem 2.4rem;
+    padding: unset;
+    justify-content:unset;
+    // padding: 0.6rem 1.8rem;
   }
 }
 
@@ -29,12 +31,13 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    padding: 0.6rem 1.8rem;
   }
 
 }
 
 .header__button__wrapper {
-  border: 2px solid $color-black;
+  // border: 2px solid $color-black;
   border-radius: 12.8rem;
   position: relative;
   width: 6.4rem;

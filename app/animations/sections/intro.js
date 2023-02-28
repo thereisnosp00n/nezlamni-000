@@ -56,7 +56,7 @@ export default class Intro {
           }
         })
       },
-      { threshold: 0.0, rootMargin: '-25% 0%' }
+      { threshold: 0.0, rootMargin: '-15% 0%' }
     )
     observer.observe(element)
     this.observers.push(observer)

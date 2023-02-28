@@ -49,6 +49,10 @@
 
     span span {
       visibility: hidden;
+
+      @include media('<phone') {
+        visibility: visible;
+      }
     }
 
     @include media('<phone') {

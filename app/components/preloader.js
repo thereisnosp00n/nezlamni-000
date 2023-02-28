@@ -10,6 +10,8 @@ export default class Preloader extends Component {
       pageElements: {
         preloaderTitle: '.preloader__title',
         preloaderPercents: '.preloader__percents',
+        logo: '.preloader__logo__wrapper',
+        lines: document.querySelectorAll('.preloader__line'),
         images: document.querySelectorAll('img'),
       },
     })
@@ -42,26 +44,43 @@ export default class Preloader extends Component {
     const percent = this.length / this.pageElements.images.length
     this.pageElements.preloaderPercents.innerHTML = `${Math.round(
       percent * 100
-    )}`
+    )}%`
     if (percent === 1) {
       this.onLoaded()
     }
   }
 
   onLoaded() {
+    const elements = [
+      ...this.pageElements.lines,
+      this.pageElements.logo,
+      this.pageElements.preloaderPercents,
+      this.pageElements.preloaderTitle,
+    ]
+
     return new Promise((resolve) => {
       this.animateOut = GSAP.timeline({
         delay: 2,
       })
-      this.animateOut.to(this.contentDiv, {
+
+      this.animateOut.to(elements, {
         autoAlpha: 0,
-        duration: 1,
-        // resolve,
-        onComplete: () => {
-          // this.pageEvents.scrollManagement.enableScroll()
-        },
+        duration: 0.25,
       })
 
+      this.animateOut.to(
+        this.contentDiv,
+        {
+          height: 0,
+          // autoAlpha: 0,
+          duration: 0.65,
+          // resolve,
+          onComplete: () => {
+            // this.pageEvents.scrollManagement.enableScroll()
+          },
+        },
+        '>'
+      )
       this.animateOut.call((_) => {
         this.pageEvents.eventEmitter.emit('completed')
         resolve()

@@ -1,6 +1,7 @@
 import GSAP from 'gsap'
 import each from 'lodash/each'
 import { split, calculate } from 'utils/text'
+import DetectionManager from 'classes/detection'
 
 export default class WorldSupports {
   constructor({ element, pageEvents }) {
@@ -41,13 +42,15 @@ export default class WorldSupports {
   animateInBigText(element) {
     const spans = element.querySelectorAll('span span')
 
-    GSAP.from(spans, {
-      autoAlpha: 0,
-      y: '3rem',
-      duration: 0.5,
-      ease: 'power3.out',
-      stagger: { amount: 2.0 },
-    })
+    DetectionManager.isPhone()
+      ? false
+      : GSAP.from(spans, {
+          autoAlpha: 0,
+          y: '3rem',
+          duration: 0.5,
+          ease: 'power3.out',
+          stagger: { amount: 2.0 },
+        })
   }
 
   createObservers() {
@@ -60,7 +63,7 @@ export default class WorldSupports {
     }
 
     this.createObserver(this.imageWrapper, imageOptions, this.animateInImage)
-    this.createObserver(this.map, imageOptions, this.animateInImage)
+    // this.createObserver(this.map, imageOptions, this.animateInImage)
 
     const textOptions = {
       root: null,
@@ -74,9 +77,12 @@ export default class WorldSupports {
       threshold: 0.0,
     }
 
-    each(this.paragraphs, (element) => {
-      this.createObserver(element, textOptions, this.animateInSpans)
-    })
+    each(
+      [this.paragraphs[0], this.paragraphs[1], this.paragraphs[2]],
+      (element) => {
+        this.createObserver(element, textOptions, this.animateInSpans)
+      }
+    )
 
     this.createObserver(
       this.paragraphs[3],
@@ -113,7 +119,10 @@ export default class WorldSupports {
   }
 
   setElements() {
-    this.handlerArray = [this.imageWrapper, this.map]
+    this.handlerArray = [
+      this.imageWrapper,
+      // this.map
+    ]
 
     for (let i = 0; i < 2; i++) {
       split({ element: this.paragraphs[3], append: false })
