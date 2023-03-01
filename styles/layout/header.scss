@@ -15,6 +15,10 @@
   justify-content: space-between;
   overflow: hidden;
 
+  @include media('<tablet') {
+    height: 9.6rem;
+  }
+
   @include media('<phone') {
     height: 7.2rem;
     flex-direction: column;
@@ -97,6 +101,10 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-left: 3.6rem;
+
+  @include media('<tablet') {
+    font-size: 2.8rem;
+  }
 
   @include media('<phone') {
     margin-left: unset;

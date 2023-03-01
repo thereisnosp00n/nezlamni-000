@@ -21,7 +21,13 @@
   margin-top: 8rem;
   width: 25rem;
 
+  @include media('<tablet') {
+    margin-top: 16rem;
+    width: 40rem;
+  }
+
   @include media('<phone') {
+    margin-top: 8rem;
     width: 40rem;
   }
 
@@ -55,13 +61,18 @@
       }
     }
 
-    @include media('<phone') {
+    @include media('<phone' and '<tablet') {
       width: unset;
     }
 
     &:nth-of-type(1) {
       @extend %paragraphs-18;
       color: $color-yellow;
+
+      @include media('<tablet') {
+        margin-top: 3.6rem;
+        font-size: 3.6rem;
+      }
 
       @include media('<phone') {
         margin-top: 2.4rem;
@@ -72,8 +83,14 @@
     &:nth-of-type(2) {
       margin-top: 4.8rem;
       font-size: 6rem;
+
+      @include media('<tablet') {
+        margin-top: 6.4rem;
+        font-size: 9.6rem;
+      }
       
       @include media('<phone') {
+        font-size: 6rem;
         margin-top: 6.4rem;
       }
     }
@@ -81,6 +98,11 @@
     &:nth-of-type(3) {
       margin-top: 4.8rem;
       @extend %paragraphs-18;
+
+      @include media('<tablet') {
+        margin-top: 7.2rem;
+        font-size: 3.6rem;
+      }
 
       @include media('<phone') {
         margin-top: 7.2rem;
@@ -96,6 +118,12 @@
       width: 90%;
       font-weight: 800;
       line-height: 0.9;
+
+      @include media('<tablet') {
+        margin-top: 6.4rem;
+        font-size: 12.8rem;
+        text-align: center;
+      }
 
       @include media('<phone') {
         width: unset;
@@ -132,9 +160,17 @@
 
 .index__worldsupports__map__image__wrapper {
   overflow: visible;
+
+  @include media('<tablet') {
+    width: 100%
+  }
 }
 
 .index__worldsupports__map__image {
+  @include media('<tablet') {
+    width: 85%
+  }
+
   @include media('<phone') {
     width: 100%
   }

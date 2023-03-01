@@ -15,7 +15,11 @@ html {
     touch-action: none;
 
     @include media('<tablet-v') {
-        font-size:calc(100vw/1440 * 13.5);
+        font-size:calc(100vw/768 * 8);
+    }
+
+    @include media('<tablet') {
+        font-size:calc(100vw/1024 * 8);
     }
     
     @include media('<phone') {

@@ -29,6 +29,10 @@
   margin-bottom: 3.6rem;
 
   @include media('<phone') {
+    margin-bottom: 5.2rem;
+  }
+
+  @include media('<phone') {
     width: 100%;
     margin: 3.6rem auto;
   }
@@ -48,6 +52,10 @@
   margin: auto;
   width: 50%;
 
+  @include media('<tablet') {
+    width: 80%;
+  }
+
   @include media('<phone') {
     width: unset;
   }
@@ -58,6 +66,10 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 3.6rem;
+
+  @include media('<tablet') {
+    margin-top: 6.4rem;
+  }
 }
 
 .index__bringvictory__social__wrapper{
@@ -71,12 +83,28 @@
   margin:0 1.2rem;
   border: solid 2px white;
   cursor: pointer;
+
+  @include media('<tablet') {
+    width: 12.8rem;
+    height: 12.8rem;
+    margin:0 2.4rem;
+  }
+
+  @include media('<phone') {
+    width: 6.4rem;
+    height: 6.4rem;
+    margin:0 1.2rem;
+  }
 }
 
 .index__bringvictory__social{
   height: 40%;
+
+  @include media('<tablet') {
+    height: 40%;
+  }
+
   @include media('<phone') {
-    height: 60%;
     height: 3.2rem;
   }
 }

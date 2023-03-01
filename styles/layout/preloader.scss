@@ -34,6 +34,12 @@
   font-weight: 500;
   width: 15%;
   text-align: right;
+
+  @include media('<tablet') {
+    width: 28.5%;
+    font-size: 3.6rem;
+  }
+
   @include media('<phone') {
     text-align: center;
     width: 100%;
@@ -46,6 +52,12 @@
   font-weight: 600;
   text-align: center;
   width: 10%;
+
+  @include media('<tablet') {
+    font-size: 7.2rem;
+    width: 20%;
+  }
+
   @include media('<phone') {
     text-align: center;
     width: 100%;
@@ -58,6 +70,10 @@
   width: 15%;
   text-align: left;
 
+  @include media('<tablet') {
+    width: 28.5%;
+  }
+
   @include media('<phone') {
     text-align: center;
     width: 100%;
@@ -69,6 +85,10 @@
   height: 0.1rem;
   background-color: $color-gray;
   width: 27.5%;
+
+  @include media('<tablet') {
+    width: 11.5%;
+  }
 
   @include media('<phone') {
     display: none;

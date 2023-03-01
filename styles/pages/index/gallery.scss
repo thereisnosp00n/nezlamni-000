@@ -24,6 +24,11 @@
 
   @include media('<phone') {
     width: 90%;
+    font-size: 6.4rem;
+  }
+
+  @include media('<phone') {
+    font-size: 4.8rem;
     margin-bottom: unset;
   }
 }
@@ -43,18 +48,9 @@
 .index__gallery__images__wrapper {
   position: absolute;
   height: 100%;
-  // width: 100%;
-  // display: flex;
-  // align-items: center;
 
   @include media('<phone') {
-    // width: 150%;
-    // height: unset;
     width: 100%;
-    // display: flex;
-    // align-items: center;
-    // flex-direction: column;
-    // flex-wrap: wrap;
   }
 }
 
@@ -62,9 +58,12 @@
   width: 56rem;
   height: 56rem;
   position: absolute;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+
+  @include media('<tablet') {
+    width: 52rem;
+    height: 52rem;
+    padding: 1.2rem;
+  }
 
   @include media('<phone') {
     width: 48rem;
@@ -115,6 +114,18 @@
   margin: 0 1.2rem;
   background-color: $color-black;
   user-select: none;
+
+  @include media('<tablet') {
+    width: 12.8rem;
+    height: 12.8rem;
+    margin: 0 2.4rem;
+  }
+
+  @include media('<tablet') {
+    width: 6.4rem;
+    height: 6.4rem;
+    margin: 0 1.2rem;
+  }
 
   &:nth-of-type(1) {
     transform: scaleX(-1);

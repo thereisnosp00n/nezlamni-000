@@ -8,15 +8,7 @@
   padding-top: 6rem;
 
   @include media('<tablet') {
-    padding-top: 18rem;
-  }
-
-  @include media('<tablet-v') {
-    bottom: -36rem;
-  }
-
-  @include media('<laptop') {
-    padding-top: 12rem;
+    padding-top: 24rem;
   }
 
   @include media('<phone') {
@@ -45,7 +37,12 @@
       font-size: 4.8rem;
       text-transform: uppercase;
 
+      @include media('<tablet') {
+        font-size: 7.2rem;
+      }
+
       @include media('<phone') {
+        font-size: 4.8rem;
         width: 90%;
       }
     }
@@ -58,6 +55,11 @@
       width: 70%;
       font-size: 2.0rem;
       line-height: 1.5;
+
+      @include media('<tablet') {
+        font-size: 3.6rem;
+        width: 80%;
+      }
 
       @include media('<phone') {
         width: 90%;
@@ -83,8 +85,9 @@
   .index__createdby__logo__wrapper {
     mix-blend-mode: multiply;
     overflow: visible;
+    text-align: center;
 
-    @include media('<tablet-v') {
+    @include media('<tablet') {
       margin: 1.2rem 2.4rem;
       min-width: 40%;
       display: flex;
@@ -95,7 +98,6 @@
     @include media('<phone') {
       margin: 1.2rem 0;
       max-width: 40%;
-      
     }
 
     margin: 0 2.4rem;

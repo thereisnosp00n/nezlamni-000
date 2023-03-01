@@ -16,19 +16,32 @@
   margin: auto;
   @extend %paragraphs-18;
 
-  @include media('<phone') {
+  @include media('<phone' and '<tablet') {
     width: 90%;
+    line-height: 2;
   }
 }
 
 .index__howtohelp__title  {
   font-size: 4.8rem;
   margin-bottom: 4.8rem;
+
+  @include media('<tablet') {
+    font-size: 9.6rem;
+  }
+
+  @include media('<tablet') {
+    font-size: 4.8rem;
+  }
 }
 
 .index__howtohelp__subtitle {
   font-size: 1.8rem;
   line-height: 1.5;
+
+  @include media('<tablet') {
+    font-size: 3.6rem;
+  }
 
   @include media('<phone') {
     font-size: 2.4rem;
@@ -48,6 +61,10 @@
   margin-bottom: 2.4rem;
   font-weight: 400;
 
+  @include media('<tablet') {
+    font-size: 3.6rem;
+  }
+
   @include media('<phone') {
     font-size: 2.4rem;
   }
@@ -60,6 +77,10 @@
   text-transform: uppercase;
   margin-bottom: 2.4rem;
   font-weight: 400;
+
+  @include media('<tablet') {
+    font-size: 3.6rem;
+  }
 
   @include media('<phone') {
     font-size: 2.4rem;
@@ -83,7 +104,15 @@
     border-bottom: 1px solid #8E833E;
   }
 
+  @include media('<tablet') {
+    display: flex;
+    flex-direction: column;
+    font-size: 3.6rem;
+    padding: 4.8rem 2.4rem;
+  }
+
   @include media('<phone') {
+    padding: 2.4rem;
     font-size: 2.4rem;
     line-height: 1.5;
     display: flex;
@@ -100,6 +129,11 @@
   display: flex;
   align-items: center;
 
+  @include media('<tablet') {
+    margin-bottom: 4.8rem;
+
+  }
+
   @include media('<phone') {
     margin-bottom: 2.4rem;
 
@@ -110,6 +144,12 @@
   width: 3.2rem;
   height: 3.2rem;
   margin-right: 1.2rem;
+  position: relative;
+
+  @include media('<tablet') {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
 
   @include media('<phone') {
     overflow: visible;
@@ -117,11 +157,19 @@
 }
 
 .index__howtohelp__crypto__card__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
 
 .index__howtohelp__crypto__card__name  {
   font-weight: 500;
+
+  @include media('<tablet') {
+    font-size: 4.8rem;
+  }
 
   @include media('<phone') {
     font-size: 2.8rem;
@@ -130,6 +178,11 @@
 
 .index__howtohelp__crypto__card__wallet  {
   font-weight: 400;
+
+  @include media('<tablet') {
+    font-size: 3.6rem;
+    margin-bottom: 3.6rem;
+  }
 
   @include media('<phone') {
     font-size: 2.0rem;
@@ -146,10 +199,25 @@
 .index__howtohelp__crypto__card__button__icon__wrapper {
   margin-right: 0.8rem;
   position: relative;
+
+  @include media('<tablet') {
+    overflow: visible;
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+
+  @include media('<phone') {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
 }
 
 .index__howtohelp__crypto__card__button__icon {
-  transform: translateY(-10%);
+  // transform: translateY(-10%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
 }
 
 .index__howtohelp__crypto__card__button__caption  {
@@ -165,6 +233,10 @@
     cursor: pointer;
   }
 
+  @include media('<tablet') {
+    font-size: 4.8rem;
+  }
+
   @include media('<phone') {
     font-size: 2.4rem;
   }
@@ -178,6 +250,10 @@
   letter-spacing: 0.1rem;
   line-height: 2;
   display: none;
+
+  @include media('<tablet') {
+    font-size: 4.8rem;
+  }
 
   @include media('<phone') {
     font-size: 2.4rem;
@@ -212,6 +288,11 @@
   color: $color-black;
   margin: 0 1.2rem;
 
+  @include media('<tablet') {
+    width: 80%;
+    margin: 3.6rem 0;
+    padding: 4.8rem 3.6rem;
+  }
 
   @include media('<phone') {
     width: 100%;
@@ -234,6 +315,10 @@
   margin-bottom: 1.6rem;
   font-weight: 600;
 
+  @include media('<tablet') {
+    font-size: 4.8rem;
+  }
+
   @include media('<phone') {
     font-size: 3.6rem;
   }
@@ -249,6 +334,10 @@
   font-size: 1.6rem;
   margin-top: 2.4rem;
 
+  @include media('<tablet') {
+    font-size: 3.6rem;
+  }
+
   @include media('<phone') {
     font-size: 2.4rem;
   }
@@ -256,6 +345,12 @@
 
 .index__howtohelp__wire__card__info__wrapper {
   margin-bottom: 1.2rem;
+
+  @include media('<tablet') {
+    margin-bottom: 2.4rem;
+    font-size: 3.6rem;
+  }
+
   @include media('<phone') {
     margin-bottom: 2.4rem;
   }
@@ -265,6 +360,10 @@
   font-weight: 600;
   margin-bottom: 0.6rem;
 
+  @include media('<tablet') {
+    font-size: 3.6rem;
+  }
+
   @include media('<phone') {
     font-size: 2.2rem;
   }
@@ -273,6 +372,10 @@
 .index__howtohelp__wire__card__info__data  {
   font-weight: 400;
   font-size: 1.8rem;
+
+  @include media('<tablet') {
+    font-size: 3.2rem;
+  }
 
   @include media('<phone') {
     font-size: 2.2rem;
@@ -296,6 +399,10 @@
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.5;
+
+  @include media('<tablet') {
+    font-size: 3.2rem;
+  }
 
   @include media('<phone') {
     font-size: 2.0rem;
@@ -325,6 +432,12 @@
 
   strong {
     font-weight: 800;
+  }
+
+  @include media('<tablet') {
+    font-size: 3.6rem;
+    width: 70%;
+    margin: auto;
   }
 
   @include media('<phone') {

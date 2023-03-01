@@ -14,7 +14,9 @@ block content
       section.index__herobanner
         .index__herobanner__wrapper
           figure.index__herobanner__image__wrapper
-            img.index__herobanner__image(data-src=root.herobanner_image.url crossorigin='anonymous')
+            video.index__herobanner__video(autoplay, loop, muted)
+              source(src='/hero_video.mp4', type='video/mp4')
+            //- img.index__herobanner__image(data-src=root.herobanner_image.url crossorigin='anonymous')
 
           .index__herobanner__titles__wrapper
             each title in root.herobanner_titles
@@ -74,8 +76,9 @@ block content
                   .index__project__goal !{helpers.asHTML(project.goal)}
 
                   .index__project__infobar__buttons__wrapper
-                    .index__project__support__button
-                      .index__project__support__button__caption !{helpers.asHTML(misc.support_caption)}
+                    a.index__project__link(href=project.link.url target='_blank')
+                      .index__project__support__button
+                        .index__project__support__button__caption !{helpers.asHTML(misc.support_caption)}
 
                     .index__project__details__button
                       figure.index__arrow__wrapper

@@ -11,9 +11,17 @@
   position: relative;
   height: 66vh;
 
+  @include media('<tablet') {
+    height: 76vh;
+  }
+
   @include media('<phone') {
     height: 76rem;
   }
+}
+
+.index__herobanner__video {
+  height: 100vh;
 }
 
 .index__herobanner__image {
@@ -62,6 +70,10 @@
 
     &:nth-of-type(1) {
       font-size: 24.8rem;
+
+      @include media('<tablet') {
+        font-size: 22.8rem;
+      }
 
       @include media('<phone') {
         font-size: 9.8rem;

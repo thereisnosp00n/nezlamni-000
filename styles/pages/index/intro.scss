@@ -13,7 +13,7 @@
   width: 50%;
   text-align: center;
 
-  @include media('<phone') {
+  @include media('<phone' and '<tablet') {
     width: 80%;
   }
 
@@ -30,6 +30,10 @@
     &:nth-of-type(1) {
       @extend %paragraphs-18;
 
+      @include media('<tablet') {
+        font-size: 3.6rem;
+      }
+
       @include media('<phone') {
         font-size: 2.4rem;
       }
@@ -42,6 +46,10 @@
       color: $color-yellow;
       width: 60%;
 
+      @include media('<tablet') {
+        font-size: 3.6rem;
+      }
+
       @include media('<phone') {
         font-size: 2.4rem;
       }
@@ -52,6 +60,10 @@
       font-family: $font-noto;
       font-size: 6rem;
       text-transform: uppercase;
+
+      @include media('<tablet') {
+        font-size: 9.6rem;
+      }
 
       @include media('<phone') {
         font-size: 4.8rem;
@@ -67,20 +79,25 @@
   padding: 0.2rem;
   height: 131rem;
 
-  @include media('<tablet-v') {
-    margin-top: 4.8rem;
+  @include media('<tablet') {
+    margin: unset;
+    padding: 12.8rem 0;
     display: flex;
     height: unset;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   @include media('<phone') {
+    padding: unset;
     margin-top: 4.8rem;
     display: flex;
     height: unset;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 9.6rem;
   }
 
   .index__intro__gallery__image__wrapper {
@@ -88,12 +105,24 @@
 
     &:nth-of-type(1) {
       left: 6rem;
-      top: 20rem
+      top: 20rem;
+
+      @include media('<tablet') {
+        max-width: 20%;
+      }
+
+      @include media('<tablet') {
+        max-width: unset;
+      }
     }
 
     &:nth-of-type(2) {
       left: 39.6rem;
       top: 12.4rem;
+
+      @include media('<tablet') {
+        max-width: 70%;
+      }
 
       @include media('<phone') {
         width: 90%;
@@ -102,42 +131,55 @@
 
     &:nth-of-type(3) {
       left: 118rem;
-      top: 20rem
+      top: 20rem;
+
+      @include media('<tablet') {
+        min-width: 28%;
+      }
     }
 
     &:nth-of-type(4) {
       left: 17.2rem;
-      top: 63.4rem
+      top: 63.4rem;
+
+      @include media('<tablet') {
+        min-width: 28%;
+      }
     }
 
     &:nth-of-type(5) {
       left: 62.2rem;
-      top: 71.1rem
+      top: 71.1rem;
+
+      @include media('<tablet') {
+        min-width: 28%;
+      }
     }
 
     &:nth-of-type(6) {
       left: 106.8rem;
       top: 76rem;
 
+      @include media('<tablet') {
+        display: none;
+      }
+
       @include media('<phone') {
         margin-bottom: 7.2rem;
       }
     }
 
-    @include media('<phone') {
+    @include media('<phone' and '<tablet') {
       position: unset;
       margin: 2.4rem 0;
     }
   }
 }
 
-.index__intro__image__wrapper {
-
+.index__intro__image {
+  @include media('<tablet') {
+    width: 100%;
+  }
 }
 
-
-
-.index__intro__gallery__image__wrapper {
-
-}
 

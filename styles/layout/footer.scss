@@ -30,6 +30,12 @@
   }
 
   .footer__logo__wrapper {
+    @include media('<tablet') {
+      text-align: center;
+      margin: 2.4rem;
+      min-width: 40%;
+    }
+
     @include media('<phone') {
       margin: 1.2rem 0;
       max-width: 40%;
