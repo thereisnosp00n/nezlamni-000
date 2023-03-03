@@ -42,15 +42,12 @@ export default class WorldSupports {
   animateInBigText(element) {
     const spans = element.querySelectorAll('span span')
 
-    DetectionManager.isPhone()
-      ? false
-      : GSAP.from(spans, {
-          autoAlpha: 0,
-          y: '3rem',
-          duration: 0.5,
-          ease: 'power3.out',
-          stagger: { amount: 2.0 },
-        })
+    GSAP.from(element, {
+      autoAlpha: 0,
+      y: '3rem',
+      duration: 0.5,
+      ease: 'power3.out',
+    })
   }
 
   createObservers() {
@@ -124,11 +121,11 @@ export default class WorldSupports {
       // this.map
     ]
 
-    for (let i = 0; i < 2; i++) {
-      split({ element: this.paragraphs[3], append: false })
-    }
+    // for (let i = 0; i < 2; i++) {
+    //   split({ element: this.paragraphs[3], append: false })
+    // }
 
-    for (let i = 0; i < this.paragraphs.length - 1; i++) {
+    for (let i = 0; i < this.paragraphs.length; i++) {
       this.paragraphs[i].style.visibility = 'hidden'
     }
 

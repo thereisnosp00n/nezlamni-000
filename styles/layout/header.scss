@@ -100,10 +100,11 @@
   @extend %link--hidden;
   font-size: 1.6rem;
   font-weight: 600;
-  margin-left: 3.6rem;
+  margin-left: 6.4rem;
 
   @include media('<tablet') {
-    font-size: 2.8rem;
+    margin-left: 5.2rem;
+    font-size: 2.4rem;
   }
 
   @include media('<phone') {

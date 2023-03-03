@@ -27,10 +27,10 @@ export default class Project {
       duration: 0.5,
     })
 
-    GSAP.from(this.image, {
+    GSAP.to(this.image, {
       scale: 1,
       duration: 3.5,
-      ease: 'linear',
+      ease: 'power3.out',
     })
 
     GSAP.to(this.topLine, {

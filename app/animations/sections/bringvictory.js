@@ -20,8 +20,8 @@ export default class BringVictory {
       autoAlpha: 0,
       duration: 0.65,
       ease: 'linear',
-      filter: 'blur(2.5px)',
-      stagger: { amount: 0.5 },
+      // filter: 'blur(2.5px)',
+      // stagger: { amount: 0.5 },
     })
   }
 

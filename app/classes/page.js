@@ -3,7 +3,7 @@ import each from 'lodash/each'
 import map from 'lodash/map'
 import Prefix from 'prefix'
 import AsyncLoad from 'classes/AsyncLoad'
-import Detection from 'classes/detection'
+import DetectionManager from 'classes/detection'
 
 export default class Page {
   constructor({ id, contentDiv, pageElements, scrollPosition }) {
@@ -69,7 +69,7 @@ export default class Page {
     this.scroll.min = this.scroll.current
 
     this.setLimits(this.scroll.current + wrapperHeight, undefined)
-    console.log(this.scroll.current + wrapperHeight, this.scroll.limit)
+    // console.log(this.scroll.current + wrapperHeight, this.scroll.limit)
   }
 
   callPopupClose() {
@@ -186,7 +186,7 @@ export default class Page {
   onMouseWheel({ pixelY }) {
     const fixedPixelY = !this.touchEvents
       ? Math.min(Math.max(pixelY, -100), 100)
-      : Math.min(Math.max(pixelY, -75), 75) // -- Scroll speed for the trackpad
+      : Math.min(Math.max(pixelY, -125), 125) // -- Scroll speed for the trackpad
 
     // const fixedPixelY = Math.min(Math.max(pixelY, -50), 50)
 
@@ -202,16 +202,18 @@ export default class Page {
   }
 
   onTouchMove(event) {
-    if (!Detection.isPhone() || !this.isDown) return
+    if (!DetectionManager.isPhone() && !DetectionManager.isTablet()) return
+
+    if (!this.isDown) return
 
     const y = event.touches ? event.touches[0].clientY : event.clientY
-    this.distance = (this.start - y) * 3
+    this.distance = (this.start - y) * 4.5
 
     this.scroll.target = this.scroll.position + this.distance
   }
 
   onTouchDown(event) {
-    if (!Detection.isPhone()) return
+    if (!DetectionManager.isPhone() && !DetectionManager.isTablet()) return
 
     if (!this.touchEvents) return
 
@@ -222,7 +224,7 @@ export default class Page {
   }
 
   onTouchUp(event) {
-    if (!Detection.isPhone()) return
+    if (!DetectionManager.isPhone() && !DetectionManager.isTablet()) return
 
     this.isDown = false
   }

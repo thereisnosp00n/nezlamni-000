@@ -75,8 +75,6 @@ export default class Header extends Component {
 
     if (DetectionManager.isPhone()) this.closeMenu()
 
-    console.log('hiding')
-
     GSAP.to(this.pageElements.wrapper, {
       y: -this.shiftAmount,
       duration: 0.5,
@@ -168,12 +166,12 @@ export default class Header extends Component {
 
     const distance = this.touchXY.y.start - this.touchXY.y.end
 
-    if (distance < 0) {
+    if (distance > 0) {
       this.hideHeader()
       this.fixed = true
     }
 
-    if (distance > 0) {
+    if (distance < 0) {
       this.showHeader()
       this.fixed = false
     }

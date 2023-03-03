@@ -53,6 +53,9 @@
   .index__project__image__wrapper {
     width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include media('<phone') {
       width: 100%;
@@ -61,17 +64,17 @@
   }
   
   .index__project__image {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0%);
     width: 100%;
 
     @include media('<phone') {
-      position: absolute;
       width: unset;
-      // left: -50%;
       height: 100%;
-      transform: translate(-50%, 0%);
+    }
+  }
+
+  #project__image__1 {
+    @include media('<phone') {
+      translate: -15%;
     }
   }
   
