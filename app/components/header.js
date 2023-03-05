@@ -27,6 +27,8 @@ export default class Header extends Component {
     this.getElements()
     this.setAnimations()
 
+    // this.sectionsHeights = []
+
     this.touchXY = {
       x: {
         start: 0,
@@ -58,6 +60,13 @@ export default class Header extends Component {
       this.hideHeader()
       this.pageEvents.eventEmitter.emit('scrollTo', this.sectionsHeights[7])
     })
+
+    const button = document.querySelector('#regular-button')
+
+    button.addEventListener('click', () => {
+      this.hideHeader()
+      this.pageEvents.eventEmitter.emit('scrollTo', this.sectionsHeights[4])
+    })
   }
 
   handleMenu() {
@@ -70,6 +79,7 @@ export default class Header extends Component {
 
   hideHeader() {
     if (!this.visible) return
+    // if (!this.visible) return
 
     this.visible = false
 
@@ -83,7 +93,8 @@ export default class Header extends Component {
   }
 
   showHeader() {
-    if (this.visible) return
+    // if (this.menuOpened) return
+    // if (this.visible) return
     this.visible = true
 
     GSAP.to(this.pageElements.wrapper, {
@@ -91,8 +102,6 @@ export default class Header extends Component {
       duration: 0.5,
       ease: 'power3.out',
     })
-
-    if (this.fixed) return
 
     // setTimeout(() => {
     //   this.hideHeader()
@@ -168,12 +177,12 @@ export default class Header extends Component {
 
     if (distance > 0) {
       this.hideHeader()
-      this.fixed = true
+      this.fixed = false
     }
 
     if (distance < 0) {
       this.showHeader()
-      this.fixed = false
+      this.fixed = true
     }
   }
 
@@ -208,13 +217,13 @@ export default class Header extends Component {
     this.addAnchors()
   }
 
-  onResize() {
+  onResize(scroll = 0) {
     this.shiftAmount = this.pageElements.wrapper.offsetHeight
 
     this.sectionsHeights = []
 
     each(this.sections, (element) => {
-      this.sectionsHeights.push(element.getBoundingClientRect().y)
+      this.sectionsHeights.push(element.getBoundingClientRect().y + scroll)
     })
   }
 
@@ -235,7 +244,7 @@ export default class Header extends Component {
 
     this.menuTimeline.add(
       GSAP.from(this.pageElements.links, {
-        y: '3rem',
+        y: '-3rem',
         autoAlpha: 0,
         duration: 0.35,
         stagger: {
@@ -244,6 +253,10 @@ export default class Header extends Component {
       }),
       '>-1.0'
     )
+
+    GSAP.set(this.pageElements.wrapper, {
+      y: -this.shiftAmount,
+    })
   }
 
   getElements() {

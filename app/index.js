@@ -194,6 +194,8 @@ class App {
   }
 
   onTouchDown(event) {
+    if (!this.pageEvents.scrollManagement.touchActive) return
+
     if (this.canvas && this.canvas.onTouchDown) {
       this.canvas.onTouchDown(event)
     }

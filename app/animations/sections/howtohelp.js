@@ -69,10 +69,11 @@ export default class HowToHelp {
   }
 
   animateButton() {
-    GSAP.from(this.button, {
+    GSAP.from([this.paypalButton, this.paymentButton], {
       autoAlpha: 0,
       y: '3rem',
       duration: 0.75,
+      stagger: 0.25,
       onComplete: () => {
         this.addButtonEventListeners()
       },
@@ -198,12 +199,12 @@ export default class HowToHelp {
 
     const buttonOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
-      threshold: 0.5,
+      rootMargin: '-15% 0% -15% 0%',
+      threshold: 0.0,
     }
 
     this.createObserver(
-      this.button,
+      this.paymentButton,
       buttonOptions,
       this.animateButton.bind(this)
     )
@@ -225,30 +226,60 @@ export default class HowToHelp {
   }
 
   hoverOnButton() {
-    GSAP.to(this.button, {
+    GSAP.to(this.paymentButton, {
       backgroundColor: '#FFE459',
       boxShadow: '0px 5px 12px rgba(255, 228, 89, 0.35)',
       duration: 0.25,
       overwrite: true,
     })
 
-    GSAP.to(this.button.querySelector('p'), {
+    GSAP.to(this.paymentButton.querySelector('p'), {
       color: '#0F0F0F',
       duration: 0.25,
       overwrite: true,
     })
   }
 
+  hoverOnPayPal() {
+    GSAP.to(this.paypalButton, {
+      boxShadow: '0px 10px 24px rgba(95, 188, 255, 0.5)',
+      duration: 0.25,
+      overwrite: true,
+    })
+
+    // #0079CD
+
+    GSAP.to(this.paypalButton.querySelector('p'), {
+      color: '#0079CD',
+      duration: 0.25,
+      overwrite: true,
+    })
+  }
+
   hoverOffButton() {
-    GSAP.to(this.button, {
+    GSAP.to(this.paymentButton, {
       backgroundColor: 'rgba(15, 15, 15, 0)',
       boxShadow: '0px 0px 0px rgba(255, 228, 89, 0.35)',
       duration: 0.25,
       overwrite: true,
     })
 
-    GSAP.to(this.button.querySelector('p'), {
+    GSAP.to(this.paymentButton.querySelector('p'), {
       color: '#FFE459',
+      duration: 0.25,
+      overwrite: true,
+    })
+  }
+
+  hoverOffPayPal() {
+    GSAP.to(this.paypalButton, {
+      boxShadow: '0px 5px 12px rgba(95, 188, 255, 0.00)',
+      duration: 0.25,
+      overwrite: true,
+    })
+
+    GSAP.to(this.paypalButton.querySelector('p'), {
+      color: '#0F0F0F',
       duration: 0.25,
       overwrite: true,
     })
@@ -277,9 +308,10 @@ export default class HowToHelp {
     this.wireCardsWrapper = this.element.querySelector(
       '.index__howtohelp__wire__cards__wrapper'
     )
-    this.button = this.element.querySelector(
-      '.index__howtohelp__cardpayment__button'
-    )
+
+    this.paymentButton = this.element.querySelector('#regular-button')
+    this.paypalButton = this.element.querySelector('#paypal-button')
+
     this.copyButtons = this.element.querySelectorAll(
       '.index__howtohelp__crypto__card__button'
     )
@@ -297,7 +329,8 @@ export default class HowToHelp {
       ...this.cryptoCards,
       this.wireTitle,
       ...this.wireCards,
-      this.button,
+      this.paymentButton,
+      this.paypalButton,
     ]
 
     each(this.handlerArray, (element) => {
@@ -322,12 +355,20 @@ export default class HowToHelp {
   }
 
   addButtonEventListeners() {
-    this.button.addEventListener('mouseenter', () => {
+    this.paymentButton.addEventListener('mouseenter', () => {
       this.hoverOnButton()
     })
 
-    this.button.addEventListener('mouseleave', () => {
+    this.paymentButton.addEventListener('mouseleave', () => {
       this.hoverOffButton()
+    })
+
+    this.paypalButton.addEventListener('mouseenter', () => {
+      this.hoverOnPayPal()
+    })
+
+    this.paypalButton.addEventListener('mouseleave', () => {
+      this.hoverOffPayPal()
     })
   }
 }

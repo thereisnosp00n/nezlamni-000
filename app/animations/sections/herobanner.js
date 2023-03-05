@@ -8,7 +8,6 @@ export default class HeroBanner {
     this.pageEvents = pageEvents
 
     this.timeline = GSAP.timeline({})
-
     this.getElements()
     this.setElements()
   }
@@ -55,6 +54,7 @@ export default class HeroBanner {
         duration: 2.25,
         ease: 'power3.out',
         onComplete: () => {
+          this.pageEvents.eventEmitter.emit('herobanner-animated')
           this.pageEvents.eventEmitter.emit('onResize')
         },
       },

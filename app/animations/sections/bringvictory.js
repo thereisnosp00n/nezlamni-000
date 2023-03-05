@@ -155,6 +155,20 @@ export default class BringVictory {
     )
   }
 
+  reditectTwitter() {
+    const url = 'https://www.invincible.org.ua/'
+    const text =
+      'Support Ukraine now. Donate or share on your social media. Every effort matters!'
+    window.open(
+      'http://twitter.com/share?url=' +
+        encodeURIComponent(url) +
+        '&text=' +
+        encodeURIComponent(text),
+      '',
+      'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0'
+    )
+  }
+
   setElements() {
     split({ element: this.title })
 
@@ -176,6 +190,15 @@ export default class BringVictory {
       element.addEventListener('mouseleave', () => {
         this.hoverOffSocial(element)
       })
+    })
+
+    // this.socials[0].addEventListener('click', () => {
+    //   this.reditectTwitter()
+    // })
+
+    this.socials[2].addEventListener('click', () => {
+      const value = 'https://life-quality.fund/'
+      navigator.clipboard.writeText(value)
     })
   }
 }

@@ -6,6 +6,7 @@ export default class Gallery {
     this.element = element
     this.pageEvents = pageEvents
     this.timeline = GSAP.timeline()
+    this.hoverTimeline = GSAP.timeline({ overwrite: true })
 
     this.getElements()
     this.setElements()
@@ -68,33 +69,49 @@ export default class Gallery {
   }
 
   hoverOnArrow(element) {
-    GSAP.to(element, {
-      backgroundColor: '#FFE459',
-      boxShadow: '0px 5px 12px rgba(255, 228, 89, 0.35)',
-      duration: 0.25,
-      overwrite: true,
-    })
+    GSAP.to(
+      element,
+      {
+        backgroundColor: '#FFE459',
+        boxShadow: '0px 5px 12px rgba(255, 228, 89, 0.35)',
+        duration: 0.25,
+        overwrite: true,
+      },
+      '>'
+    )
 
-    GSAP.to(element.querySelector('img'), {
-      filter: 'brightness(0.0)',
-      duration: 0.25,
-      overwrite: true,
-    })
+    GSAP.to(
+      element.querySelector('img'),
+      {
+        filter: 'brightness(0.0)',
+        duration: 0.25,
+        overwrite: true,
+      },
+      '>'
+    )
   }
 
   hoverOffArrow(element) {
-    GSAP.to(element, {
-      backgroundColor: '#0F0F0F',
-      boxShadow: '0px 0px 0px rgba(255, 228, 89, 0.35)',
-      duration: 0.25,
-      overwrite: true,
-    })
+    GSAP.to(
+      element,
+      {
+        backgroundColor: '#0F0F0F',
+        boxShadow: '0px 0px 0px rgba(255, 228, 89, 0.35)',
+        duration: 0.25,
+        overwrite: true,
+      },
+      '>'
+    )
 
-    GSAP.to(element.querySelector('img'), {
-      filter: 'brightness(1.0)',
-      duration: 0.25,
-      overwrite: true,
-    })
+    GSAP.to(
+      element.querySelector('img'),
+      {
+        filter: 'brightness(1.0)',
+        duration: 0.25,
+        overwrite: true,
+      },
+      '<'
+    )
   }
 
   initAnimation() {
@@ -164,8 +181,8 @@ export default class Gallery {
 
     const titleOptions = {
       root: null,
-      rootMargin: '-25% 0% -25% 0%',
-      threshold: 0.5,
+      rootMargin: '-15% 0% -15% 0%',
+      threshold: 0.0,
     }
 
     this.createObserver(

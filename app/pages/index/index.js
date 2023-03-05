@@ -50,12 +50,12 @@ export default class Index extends Page {
 
   createCustomEvents() {
     this.pageEvents.eventEmitter.on('onResize', () => {
-      super.onResize()
-      this.header.onResize()
+      this.onResize()
     })
 
     this.pageEvents.eventEmitter.on('herobanner-animated', () => {
       this.header.showHeader()
+      this.onResize()
     })
   }
 
@@ -130,6 +130,8 @@ export default class Index extends Page {
     super.onResize()
     this.calculateParameters()
     this.resizeAnimations()
+
+    this.header.onResize(this.scroll.current)
   }
 
   onTouchDown(event) {

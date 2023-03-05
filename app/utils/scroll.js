@@ -19,9 +19,12 @@ export default class ScrollManagement {
       'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel'
 
     this.fakePrevent = false
+
+    this.touchActive = false
   }
 
   preventDefault(e) {
+    this.touchActive = false
     // console.log(e)
     // e.preventDefault()
   }
@@ -53,6 +56,7 @@ export default class ScrollManagement {
 
   // call this to Enable
   enableScroll() {
+    this.touchActive = true
     window.removeEventListener('DOMMouseScroll', this.preventDefault, false)
     window.removeEventListener(
       this.wheelEvent,

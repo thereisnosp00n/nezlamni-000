@@ -157,8 +157,13 @@ block content
                       .index__howtohelp__wire__card__disclaimer !{(card.disclaimer)} 
 
           .index__howtohelp__cardpayment__wrapper
-            .index__howtohelp__cardpayment__button
-              .index__howtohelp__cardpayment__button__caption !{helpers.asHTML(root.cardpayment_cta)}  
+            a.index__howtohelp__cardpayment__button#paypal-button(href=misc.paypal_link.url target='_blank')
+                figure.index__howtohelp__paypal__icon__wrapper
+                  img.index__howtohelp__paypal__icon(data-src=(misc.paypal_logo.url) crossorigin='anonymous')
+                .index__howtohelp__cardpayment__button__caption#paypal-caption !{helpers.asHTML(root.paypal_cta)}
+
+            .index__howtohelp__cardpayment__button#regular-button
+              .index__howtohelp__cardpayment__button__caption#regular-caption !{helpers.asHTML(root.cardpayment_cta)}  
 
       section.index__gallery
         .index__gallery__wrapper
@@ -186,15 +191,15 @@ block content
           .index__bringvictory__paragraphs !{helpers.asHTML(root.bringvictory_paragraphs)}
 
           .index__bringvictory__socials__wrapper
-            a(href='/')
+            a(href='https://www.instagram.com/fund_lifequality/')
               figure.index__bringvictory__social__wrapper
-                img.index__bringvictory__social(data-src=fetchSVG(misc.twitter_icon.url) crossorigin='anonymous')
+                img.index__bringvictory__social(data-src=fetchSVG(misc.instagram_icon.url) crossorigin='anonymous')
                 
-            a(href='/')  
+            a(href='https://www.facebook.com/life.quality.fund')  
               figure.index__bringvictory__social__wrapper
                 img.index__bringvictory__social(data-src=fetchSVG(misc.facebook_icon.url) crossorigin='anonymous')
 
-            a(href='/')  
+            a(href='https://life-quality.fund/')  
               figure.index__bringvictory__social__wrapper
                 img.index__bringvictory__social(data-src=fetchSVG(misc.link_icon.url) crossorigin='anonymous')
 
@@ -210,7 +215,7 @@ block content
 
             .index__invincibles__getintouch__contacts__wrapper
               each card in root.getintouch_contacts
-                .index__invincibles__getintouch__contact__wrapper
+                a.index__invincibles__getintouch__contact__wrapper(href=card.contact)
                   figure.index__invincibles__getintouch__icon__wrapper
                     img.index__invincibles__getintouch__icon(data-src=fetchSVG(card.icon.url) crossorigin='anonymous')
                   .index__invincibles__getintouch__contact !{(card.data)}

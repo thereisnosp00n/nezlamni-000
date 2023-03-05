@@ -273,6 +273,12 @@
     // font-family: $font-noto;
     line-height: 1.5;
 
+    a {
+      @extend %link--hidden;
+      color: $color-yellow;
+      font-weight: 600;
+    }
+
     @extend %paragraphs-18;
     text-transform: none;
 

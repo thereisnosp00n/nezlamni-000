@@ -62,6 +62,7 @@ const handlelinkResolver = (doc) => {
 const requestDefaults = async (api, lang) => {
   const navigation = await api.getSingle('navigation')
   const miscellaneous = await api.getSingle('miscellaneous')
+  const meta = await api.getSingle('meta')
 
   return {
     navigation,
@@ -69,6 +70,7 @@ const requestDefaults = async (api, lang) => {
     fetchSVG,
     insertBr,
     helpers,
+    meta,
   }
 }
 

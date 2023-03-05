@@ -207,7 +207,7 @@ export default class Page {
     if (!this.isDown) return
 
     const y = event.touches ? event.touches[0].clientY : event.clientY
-    this.distance = (this.start - y) * 4.5
+    this.distance = (this.start - y) * 6
 
     this.scroll.target = this.scroll.position + this.distance
   }
@@ -235,9 +235,7 @@ export default class Page {
   }
 
   transform(element, y) {
-    element.style[this.transformPrefix] = `translate3d(0, ${-Math.round(
-      y
-    )}px, 0)`
+    element.style[this.transformPrefix] = `translate3d(0, ${-y}px, 0)`
   }
 
   setPopups() {
@@ -249,8 +247,7 @@ export default class Page {
   }
 
   scrollTo(value) {
-    const delta = -(this.scroll.current - value)
-
+    const delta = -(this.scroll.target - value)
     this.scroll.target += delta
   }
 

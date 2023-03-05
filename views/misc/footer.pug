@@ -3,5 +3,5 @@ section.footer
     .footer__line
     .footer__logos__wrapper
       each logo in misc.footer_logos
-        figure.footer__logo__wrapper
+        a.footer__logo__wrapper(href=logo.link.url)
           img.footer__logo(data-src=logo.logo1.url crossorigin='anonymous')

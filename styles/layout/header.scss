@@ -101,6 +101,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-left: 6.4rem;
+  cursor: pointer;
 
   @include media('<tablet') {
     margin-left: 5.2rem;

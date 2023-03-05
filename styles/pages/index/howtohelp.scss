@@ -199,6 +199,8 @@
 .index__howtohelp__crypto__card__button__icon__wrapper {
   margin-right: 0.8rem;
   position: relative;
+  width: 1.8rem;
+  height: 1.8rem;
 
   @include media('<tablet') {
     overflow: visible;
@@ -214,10 +216,12 @@
 
 .index__howtohelp__crypto__card__button__icon {
   // transform: translateY(-10%);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -60%);
+  @include media('<phone' and '<phone') {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  }
 }
 
 .index__howtohelp__crypto__card__button__caption  {
@@ -421,6 +425,7 @@
   margin: auto;
   cursor: pointer;
   line-height: 1.5;
+  margin-bottom: 2.4rem;
 }
 
 .index__howtohelp__cardpayment__button__caption {
@@ -444,6 +449,43 @@
     font-size: 2.4rem;
     width: 70%;
     margin: auto;
+  }
+}
+
+#paypal-button {
+  display: flex;
+  justify-content: center;
+  background-color: $color-white;
+  border: unset;
+}
+
+#paypal-caption {
+  color: $color-black;
+
+  @include media('<phone') {
+    display: none;
+  }
+}
+
+.index__howtohelp__paypal__icon__wrapper {
+  height: 3.2rem;
+  margin-right: 3.6rem;
+  overflow: visible;
+  position: relative;
+
+  @include media('<phone') {
+    height: 4.8rem;
+    margin-right: unset;
+  }
+}
+
+.index__howtohelp__paypal__icon {
+  height: 100%;
+
+  @include media('<phone') {
+    position: absolute;
+    left: 50%;
+    translate: -50%
   }
 }
 
